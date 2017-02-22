@@ -1,0 +1,9 @@
+<h1>All Donations</h1>
+
+<% @donations.each do |donation| %>
+  <div class="card" id=donation-<%= donation.id %> >
+    <%= image_tag donation.image_path %>
+    <p><%= link_to donation.title, donation_path(donation) %></p>
+    <p><%= donation.price %></p>
+  </div>
+<% end %>
