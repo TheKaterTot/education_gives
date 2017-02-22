@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
