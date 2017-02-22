@@ -29,15 +29,17 @@
           <p class="navbar-text navbar-right"><a href="#" class="navbar-link">Sign in or</a>
             <a href="#" class="navbar-link">Sign up</a>
           </p>
+          <p class="navbar-text navbar-right">
+            <%= link_to "Cart: #{@cart.total_count}", carts_path, class: "navbar-link" %>
+          </p>
         </div>
       </div>
     </nav>
     <% flash.each do |type, message| %>
-      <%= content_tag :div, message, class: type %>
+      <%= content_tag :div, message, class: "alert alert-#{type}" %>
     <% end %>
-
-    <p>Cart: <%= @cart.total_count %></p>
-
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
