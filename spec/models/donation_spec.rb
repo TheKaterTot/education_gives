@@ -22,7 +22,7 @@ RSpec.describe Donation, type: :model do
   end
 
   it "can report on how many of a particular donation it has" do
-    cart = Cart.new({"1" => 3, "2" => 1})
+    cart = Cart.new({ "1" => 3, "2" => 1 })
 
     expect(cart.count_of(1)).to eq(3)
   end
