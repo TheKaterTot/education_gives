@@ -8,19 +8,19 @@
 Donation.destroy_all
 Category.destroy_all
 
-music = Category.create(name: "Music")
-science = Category.create(name: "Science")
-library = Category.create(name: "Library")
+music = Category.create(name: "music")
+science = Category.create(name: "science")
+library = Category.create(name: "library")
 
 donation1 = science.donations.create(title: "Bike to school",
-                            description: "Transportation to get to school",
-                            price: 50,
-                            image_path: "#")
+                                    description: "Transportation to get to school",
+                                    price: 50,
+                                    image_path: "#")
 
 donation2 = music.donations.create(title: "School lunch",
-                            description: "Monthly fee for school lunch",
-                            price: 20,
-                            image_path: "#")
+                                  description: "Monthly fee for school lunch",
+                                  price: 20,
+                                  image_path: "#")
 
 donation3 = library.donations.create(title: "New Violin",
                             description: "Our music club needs new violins for the regional competition.",
