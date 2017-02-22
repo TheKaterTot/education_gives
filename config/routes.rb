@@ -10,5 +10,4 @@ Rails.application.routes.draw do
   resources :donations, only: [:index, :show]
 
   get ":slug" => "categories#show", :as => "category"
-
 end
