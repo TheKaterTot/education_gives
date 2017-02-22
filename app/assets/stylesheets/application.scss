@@ -16,3 +16,56 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Patua+One|Podkova:700|Sura:700|Volkhov:700');
+
+.title {
+  font-family: 'Volkhov', serif;
+  font-size: 60px;
+  text-align: center;
+}
+
+.btn-full {
+  width: 100%;
+  font-size: 16pt;
+  font-family: 'Volkhov', serif;
+  margin-bottom: 20px;
+}
+
+.quote {
+  font-size: 14pt;
+  font-family: 'Volkhov', serif;
+  font-style: italic;
+}
+
+.author {
+  font-size: 12pt;
+  font-family: 'Volkhov', serif;
+  font-style: italic;
+}
+
+.icon {
+  height: 50px;
+  width: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+#home_image {
+  width: 100%;
+}
+
+.quote-box {
+  width: 500px;
+}
+
+.red {
+  background-color: red;
+}
+.yellow {
+  background-color: yellow;
+}
+.blue {
+  background-color: blue;
+}
