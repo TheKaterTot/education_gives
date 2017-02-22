@@ -1,12 +1,12 @@
 require "rails_helper"
 
-feature "visitor browses by category" do
-  scenario "by entering category name in url" do
-    category = create(:category, name: "art-history")
+feature 'Visitor can browse by category' do
+  scenario 'by entering a category name into the url.' do
+    category = create(:category, name: 'art-history')
     donation1, donation2, donation3 = create_list(:donation, 3, category: category)
     visit "/art-history"
 
-    expect(page).to have_content("All Art History Donations")
+    expect(page).to have_content('All Art History Donations')
 
     within("#donation-#{donation1.id}") do
       expect(page).to have_link(donation1.title, href: donation_path(donation1))
@@ -25,12 +25,12 @@ feature "visitor browses by category" do
     end
   end
 
-  scenario "by entering a different category name" do
-    category = create(:category, name: "science")
+  scenario 'by entering a different category name into the url.' do
+    category = create(:category, name: 'science')
     donation1, donation2, donation3 = create_list(:donation, 3, category: category)
     visit "/science"
 
-    expect(page).to have_content("All Science Donations")
+    expect(page).to have_content('All Science Donations')
 
     within("#donation-#{donation1.id}") do
       expect(page).to have_link(donation1.title, href: donation_path(donation1))

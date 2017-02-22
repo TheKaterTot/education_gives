@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-feature "Visitor can see all items" do
-  scenario "when they visit the 'donations' page." do
+feature 'Visitor can see all items' do
+  scenario 'when they visit the donations page.' do
     donation1, donation2, donation3 = create_list(:donation, 3)
     visit donations_path
 
-    expect(page).to have_content("All Donations")
+    expect(page).to have_content('All Donations')
     within("#donation-#{donation1.id}") do
       expect(page).to have_link(donation1.title, href: donation_path(donation1))
       expect(page).to have_content(donation1.price)
