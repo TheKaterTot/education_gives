@@ -1,4 +1,4 @@
-<h1>All Donations</h1>
+<h1>All <%= @category.display_name %> Donations</h1>
 
 <% @donations.each do |donation| %>
   <div class="card" id=donation-<%= donation.id %> >
