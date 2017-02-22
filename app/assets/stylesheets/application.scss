@@ -16,3 +16,54 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Patua+One|Podkova:700|Sura:700|Volkhov:700');
+@import url('https://fonts.googleapis.com/css?family=Handlee|Satisfy|Bad+Script|Calligraffitti|Handlee|Merienda');
+
+.title {
+  font-family: 'Volkhov', serif;
+  font-size: 60px;
+  text-align: center;
+}
+
+.btn-full {
+  width: 100%;
+  font-size: 16pt;
+  font-family: 'Volkhov', serif;
+  margin-bottom: 20px;
+}
+
+.quote {
+  font-size: 24pt;
+  font-family: 'Handlee', serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.author {
+  font-size: 14pt;
+  font-family: 'Sura', serif;
+  font-style: italic;
+  font-weight: normal;
+  text-align: right;
+}
+
+.top {
+  vertical-align: top;
+}
+
+.bottom {
+  vertical-align: bottom;
+}
+
+.icon {
+  height: 50px;
+  width: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
+#home-image {
+  width: 100%;
+}
