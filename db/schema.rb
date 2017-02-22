@@ -21,18 +21,11 @@ ActiveRecord::Schema.define(version: 20170221235734) do
     t.datetime "updated_at", null: false
   end
 
->>>>>>> master
   create_table "donations", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.float    "price"
     t.string   "image_path"
-<<<<<<< HEAD
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-=======
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -40,5 +33,4 @@ ActiveRecord::Schema.define(version: 20170221235734) do
   end
 
   add_foreign_key "donations", "categories"
->>>>>>> master
 end
