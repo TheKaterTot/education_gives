@@ -9,15 +9,18 @@ RSpec.feature "When a user adds donations to their cart", type: :feature do
     visit donation_path(@donation)
     click_button "Add to Cart"
 
-    # expect(current_path).to eq donation_path(@donation)
+    expect(current_path).to eq donations_path
     expect(page).to have_content("You now have 1 MyString.")
   end
 
-  xscenario "the message correctly increments for multiple items" do
+  scenario "the message correctly increments for multiple items" do
     visit donation_path(@donation)
-    click_on "Add to Cart"
+    click_button "Add to Cart"
 
     expect(page).to have_content("You now have 1 MyString.")
+    click_on "MyString"
+
+    expect(current_path).to eq donation_path(@donation)
     click_button "Add to Cart"
 
     expect(page).to have_content("You now have 2 MyStrings.")
