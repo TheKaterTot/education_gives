@@ -18,11 +18,21 @@ RSpec.feature "When a user adds donations to their cart", type: :feature do
     click_button "Add to Cart"
 
     expect(page).to have_content("You now have 1 MyString.")
-    click_on "MyString"
+    click_on "MyString" #we could also put a Add to Cart in index page
 
     expect(current_path).to eq donation_path(@donation)
     click_button "Add to Cart"
 
     expect(page).to have_content("You now have 2 MyStrings.")
+  end
+
+  scenario "the total number of donations in the cart increments" do
+    visit donation_path(@donation)
+
+    expect(page).to have_content("Cart: 0")
+
+    click_button "Add to Cart"
+
+    expect(page).to have_content("Cart: 1")
   end
 end
