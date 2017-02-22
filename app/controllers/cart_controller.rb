@@ -1,6 +1,9 @@
 class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
 
+  def index
+  end
+
   def create
     donation = Donation.find(params[:donation_id])
 

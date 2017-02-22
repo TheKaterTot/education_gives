@@ -17,4 +17,16 @@ class Cart
   def count_of(donation_id)
     contents[donation_id.to_s]
   end
+
+  def display_cart
+    @contents.reduce({}) do |donations, (id, quantity)|
+      donations.merge!({Donation.find(id) => quantity})
+    end
+  end
+
+  def total
+    display_cart.reduce(0) do |sum, (donation, quantity)|
+      sum += donation.subtotal(quantity)
+    end
+  end
 end

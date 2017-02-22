@@ -1,0 +1,23 @@
+<h1>Your Cart</h1>
+<table>
+<tr>
+  <th colspan="2">Info</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <th>Subtotal</th>
+</tr>
+<% @cart.display_cart.each_pair do |donation, quantity| %>
+<tr>
+  <td><%= image_tag donation.image_path %></td>
+  <td><%= donation.title %></td>
+  <td><%= donation.price %></td>
+  <td><%= quantity %></td>
+  <td><%= donation.subtotal(quantity) %></td>
+</tr>
+<% end %>
+<tr>
+  <th colspan="3"></th>
+  <th>TOTAL</th>
+  <th><%= @cart.total %></th>
+</tr>
+</table>
