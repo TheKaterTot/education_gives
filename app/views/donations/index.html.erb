@@ -1,0 +1,4 @@
+<% @donations.each do |donation| %>
+<%= link_to donation.title, donation_path(donation) %><br />
+<%= donation.price %><br />
+<% end %>
