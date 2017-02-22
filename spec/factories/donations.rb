@@ -1,8 +1,11 @@
 FactoryGirl.define do
   factory :donation do
-    title "MyString"
-    description "MyText"
-    price 1.5
-    image_path "MyString"
+    sequence :title do |n|
+      "New Computer #{n}"
+    end
+    description "We need new computers for computer class."
+    price 500.0
+    image_path "https://pixabay.com/p-147953/"
+    category
   end
 end
