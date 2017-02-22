@@ -32,6 +32,12 @@
         </div>
       </div>
     </nav>
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message, class: type %>
+    <% end %>
+
+    <p>Cart: <%= @cart.total_count %></p>
+
     <%= yield %>
   </body>
 </html>
