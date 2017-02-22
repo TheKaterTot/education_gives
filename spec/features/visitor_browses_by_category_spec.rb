@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "visitor browses by category" do
   scenario "by entering category name in url" do
-    category = create(:category, name: "Art History")
+    category = create(:category, name: "art-history")
     donation1, donation2, donation3 = create_list(:donation, 3, category: category)
     visit "/art-history"
 
@@ -26,7 +26,7 @@ feature "visitor browses by category" do
   end
 
   scenario "by entering a different category name" do
-    category = create(:category, name: "Science")
+    category = create(:category, name: "science")
     donation1, donation2, donation3 = create_list(:donation, 3, category: category)
     visit "/science"
 
