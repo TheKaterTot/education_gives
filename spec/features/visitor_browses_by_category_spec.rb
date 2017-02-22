@@ -13,11 +13,13 @@ feature 'Visitor can browse by category' do
       expect(page).to have_content(donation1.price)
       expect(page).to have_css("img[src*='#{donation1.image_path}']")
     end
+
     within("#donation-#{donation2.id}") do
       expect(page).to have_link(donation2.title, href: donation_path(donation2))
       expect(page).to have_content(donation2.price)
       expect(page).to have_css("img[src*='#{donation2.image_path}']")
     end
+
     within("#donation-#{donation3.id}") do
       expect(page).to have_link(donation3.title, href: donation_path(donation3))
       expect(page).to have_content(donation3.price)
@@ -37,11 +39,13 @@ feature 'Visitor can browse by category' do
       expect(page).to have_content(donation1.price)
       expect(page).to have_css("img[src*='#{donation1.image_path}']")
     end
+
     within("#donation-#{donation2.id}") do
       expect(page).to have_link(donation2.title, href: donation_path(donation2))
       expect(page).to have_content(donation2.price)
       expect(page).to have_css("img[src*='#{donation2.image_path}']")
     end
+
     within("#donation-#{donation3.id}") do
       expect(page).to have_link(donation3.title, href: donation_path(donation3))
       expect(page).to have_content(donation3.price)

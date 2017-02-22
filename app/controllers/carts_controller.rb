@@ -6,7 +6,6 @@ class CartsController < ApplicationController
 
     @cart.add_donation(donation.id)
     session[:cart] = @cart.contents
-
     flash[:success] = "You now have #{pluralize(@cart.count_of(donation.id), donation.title)}."
     redirect_to donations_path
   end
