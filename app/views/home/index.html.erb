@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="col-lg-4">
+  <div class="col-lg-4 center">
     <div class="row center">
       <h1 class="title">
         Coral Coast International School
@@ -7,21 +7,26 @@
       <br>
       <%= link_to "Donate Now!", donations_path, class: "btn btn-primary btn-full", id: "btn-home" %>
     </div>
-    <div class="row center quote-box">
-      <div class="col-2 blue">
-        <%= image_tag "open_quotes.png", class: "icon" %>
-      </div>
-      <div class="quote center col red">
-        An investment in knowledge pays the best interest.
-      </div>
-      <div class="col-2 yellow">
-        <%= image_tag "close_quotes.png", class: "icon" %>
-      </div>
-    </div>
     <br>
-    <div class="col-lg-6 col-lg-offset-6 author">
-      Benjamin Franklin
-    </div>
+    <table align="center" width="500px">
+      <tr>
+        <td class="top">
+          <%= image_tag "open_quotes.png", class: "icon" %>
+        </td>
+        <td class="quote">
+          An investment in knowledge pays the best interest.
+        </td>
+        <td class="bottom">
+          <%= image_tag "close_quotes.png", class: "icon" %>
+        </td>
+        <tr>
+          <td colspan="3" class="author">
+            &#8212;Benjamin Franklin
+          </td>
+        </tr>
+      </tr>
+    </table>
+    <br>
   </div>
   <div class="col-lg-8">
     <%= image_tag "front_page.jpg", :alt => "Children of Coral Coast International School", id: "home_image" %>
