@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 feature 'Visitor can see all items' do
   scenario 'when they visit the donations page.' do
