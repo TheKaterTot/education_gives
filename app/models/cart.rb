@@ -8,4 +8,13 @@ class Cart
   def total_count
     contents.values.sum
   end
+
+  def add_donation(donation_id)
+    contents[donation_id.to_s] ||= 0
+    contents[donation_id.to_s] += 1
+  end
+
+  def count_of(donation_id)
+    contents[donation_id.to_s]
+  end
 end

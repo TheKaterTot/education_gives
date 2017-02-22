@@ -3,4 +3,4 @@
 <%= @donation.price %><br />
 <%= @donation.image_path %><br />
 
-<%= button_to "Add to Cart", donations_path(donation_id: @donation.id), class: "btn btn-danger" %>
+<%= button_to "Add to Cart", carts_path(donation_id: @donation.id), class: "btn btn-danger" %>
