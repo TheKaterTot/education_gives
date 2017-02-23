@@ -28,10 +28,10 @@
           </ul>
           <p class="navbar-text navbar-right">
             <% if current_user == session[:user_id] %>
-            <a href="/login" class="navbar-link">Sign in </a>
+              <%= link_to "Sign in", login_path, class: "navbar-link" %>
             <% else %>
             Logged in as <%= current_user.first_name %>.
-            <a href="/logout" class="navbar-link">Logout</a>
+              <%= link_to "Logout", logout_path, class: "navbar-link", method: :delete %>
             <% end %>
           </p>
           <p class="navbar-text navbar-right">

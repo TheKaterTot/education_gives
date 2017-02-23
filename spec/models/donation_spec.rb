@@ -8,10 +8,19 @@ RSpec.describe Donation, type: :model do
   it { should belong_to(:category) }
 
   it "is invalid without attributes" do
-    FactoryGirl.build(:donation, title: nil).should_not be_valid
-    FactoryGirl.build(:donation, description: nil).should_not be_valid
-    FactoryGirl.build(:donation, price: nil).should_not be_valid
-    FactoryGirl.build(:donation, image_path: nil).should_not be_valid
-    FactoryGirl.build(:donation, category: nil).should_not be_valid
+    donation_title = FactoryGirl.build(:donation, title: nil)
+    expect(donation_title).to_not be_valid
+
+    donation_description = FactoryGirl.build(:donation, description: nil)
+    expect(donation_description).to_not be_valid
+
+    donation_price = FactoryGirl.build(:donation, price: nil)
+    expect(donation_price).to_not be_valid
+
+    donation_image_path = FactoryGirl.build(:donation, image_path: nil)
+    expect(donation_image_path).to_not be_valid
+
+    donation_category = FactoryGirl.build(:donation, category: nil)
+    expect(donation_category).to_not be_valid
   end
 end

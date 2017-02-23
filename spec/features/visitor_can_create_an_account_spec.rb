@@ -23,14 +23,14 @@ RSpec.feature "A visitor can create an account" do
     fill_in("Password", with: "password")
 
     click_on "Create User"
-    current_path.should == "/dashboard"
+    expect(current_path).to eq("/dashboard")
 
     expect(page).to have_content("Logged in as Jane.")
     expect(page).to have_content("My Profile")
     expect(page).to_not have_content("Login")
     expect(page).to have_content("Logout")
 
-    # click_on "Logout"
-    # expect(page).to have_content("Sign in")
+    click_on "Logout"
+    expect(page).to have_content("Sign in")
   end
 end
