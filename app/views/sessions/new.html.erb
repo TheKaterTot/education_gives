@@ -1,0 +1,12 @@
+<h1>If you have an account, please login</h1>
+
+<%= form_for :session do |f| %>
+  <%= f.label :username, "Username"%>
+  <%= f.text_field :username %>
+  <%= f.label :password, "Password" %>
+  <%= f.password_field :password %>
+  <%= f.submit "Login", method: :create, class: "button" %>
+<% end %>
+
+<p>If you don't have an account, please create one</p>
+<%= link_to "Create Account", new_user_path %>
