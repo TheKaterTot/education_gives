@@ -24,8 +24,8 @@ class CartController < ApplicationController
   def destroy
     donation = Donation.find(params[:id])
     @cart.remove_item(donation.id)
-    flash[:success] = "Successfully removed #{view_context.link_to donation.title, donation_path(donation  )} from your cart."
+    flash[:success] = "Successfully removed " +
+    "#{view_context.link_to donation.title, donation_path(donation)} from your cart."
     redirect_to cart_index_path
   end
-
 end
