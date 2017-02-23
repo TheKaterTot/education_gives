@@ -1,5 +1,4 @@
 class DonationsController < ApplicationController
-
   include ActionView::Helpers::TextHelper
 
   def index
