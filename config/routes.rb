@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/dashboard", to: "users#show"
 
   resources :donations, only: [:index, :show]
-  resources :carts
+  resources :cart#, only: [:index, :create, :update]
 
   resources :users, only: [:new, :create, :show]
 

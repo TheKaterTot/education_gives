@@ -35,13 +35,13 @@
             <% end %>
           </p>
           <p class="navbar-text navbar-right">
-            <%= link_to "Cart: #{@cart.total_count}", carts_path, class: "navbar-link" %>
+            <%= link_to "Cart: #{@cart.total_count}", cart_index_path, class: "navbar-link" %>
           </p>
         </div>
       </div>
     </nav>
     <% flash.each do |type, message| %>
-      <%= content_tag :div, message, class: "alert alert-#{type}" %>
+      <%= content_tag :div, message.html_safe, class: "alert alert-#{type}" %>
     <% end %>
     <div class="container-fluid">
       <%= yield %>
