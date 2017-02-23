@@ -5,19 +5,21 @@
   <th>Price</th>
   <th>Quantity</th>
   <th>Subtotal</th>
+  <th></th>
 </tr>
 <% @cart.display_cart.each_pair do |donation, quantity| %>
-<tr>
+<tr id=donation-<%= donation.id %>>
   <td><%= image_tag donation.image_path %></td>
   <td><%= donation.title %></td>
   <td><%= donation.price %></td>
   <td>
     <%= form_for :cart, url: cart_path(donation.id), method: :put do |f| %>
-      <%= f.text_field :quantity, value: quantity %>
+      <%= f.text_field :quantity, value: quantity, id: "quantity-#{donation.id}" %>
       <%= f.submit "Update" %>
     <% end %>
   </td>
   <td><%= donation.subtotal(quantity) %></td>
+  <td><%= link_to "Remove", cart_path(donation.id), method: :delete, class: "btn" %></td>
 </tr>
 <% end %>
 <tr>

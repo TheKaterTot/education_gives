@@ -10,6 +10,10 @@ RSpec.describe "User sees all content of cart" do
     click_on "Cart: 1"
 
     expect(current_path).to eq cart_index_path
+
+    # within("#quantity-#{donation.id}") do
+    # end
+
     expect(page).to have_css("img[src*='#{donation.image_path}']")
     expect(page).to have_content(donation.title)
     expect(page).to have_content(donation.price)
