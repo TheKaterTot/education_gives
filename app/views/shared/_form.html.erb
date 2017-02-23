@@ -4,7 +4,7 @@
     <p><%= link_to donation.title, donation_path(donation) %></p>
     <p><%= donation.price %></p>
 
-    <%= button_to "Add to Cart", cart_path(donation_id: donation.id),
+    <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id),
         class: "btn btn-danger" %>
 
   </div>
