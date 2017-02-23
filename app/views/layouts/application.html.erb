@@ -26,8 +26,13 @@
               </ul>
             </li>
           </ul>
-          <p class="navbar-text navbar-right"><a href="#" class="navbar-link">Sign in or</a>
-            <a href="#" class="navbar-link">Sign up</a>
+          <p class="navbar-text navbar-right">
+            <% if current_user == session[:user_id] %>
+              <%= link_to "Sign in", login_path, class: "navbar-link" %>
+            <% else %>
+            Logged in as <%= current_user.first_name %>.
+              <%= link_to "Logout", logout_path, class: "navbar-link", method: :delete %>
+            <% end %>
           </p>
           <p class="navbar-text navbar-right">
             <%= link_to "Cart: #{@cart.total_count}", cart_index_path, class: "navbar-link" %>

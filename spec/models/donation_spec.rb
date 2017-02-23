@@ -5,26 +5,22 @@ RSpec.describe Donation, type: :model do
   it { should validate_presence_of(:description) }
   it { should validate_presence_of(:price) }
   it { should validate_presence_of(:image_path) }
+  it { should belong_to(:category) }
 
-  it "can calculate the total number of items it holds" do
-    cart = Cart.new({"1" => 2, "2" => 3})
+  it "is invalid without attributes" do
+    donation_title = FactoryGirl.build(:donation, title: nil)
+    expect(donation_title).to_not be_valid
 
-    expect(cart.total_count).to eq(5)
+    donation_description = FactoryGirl.build(:donation, description: nil)
+    expect(donation_description).to_not be_valid
+
+    donation_price = FactoryGirl.build(:donation, price: nil)
+    expect(donation_price).to_not be_valid
+
+    donation_image_path = FactoryGirl.build(:donation, image_path: nil)
+    expect(donation_image_path).to_not be_valid
+
+    donation_category = FactoryGirl.build(:donation, category: nil)
+    expect(donation_category).to_not be_valid
   end
-
-  it "can add a donation to its contents" do
-    cart = Cart.new({"1" => 1})
-
-    cart.add_donation(1)
-    cart.add_donation(2)
-
-    expect(cart.contents).to eq({"1" => 2, "2" => 1})
-  end
-
-  it "can report on how many of a particular donation it has" do
-    cart = Cart.new({ "1" => 3, "2" => 1 })
-
-    expect(cart.count_of(1)).to eq(3)
-  end
-
 end
