@@ -22,7 +22,7 @@
   <td><%= link_to "Remove", cart_path(donation.id), method: :delete, class: "btn" %></td>
 </tr>
 <% end %>
-<tr>
+<tr id="total">
   <th colspan="3"></th>
   <th>TOTAL</th>
   <th><%= @cart.total %></th>
