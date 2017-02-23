@@ -1,8 +1,8 @@
 class Cart
   attr_reader :contents
 
-  def initialize(initial_contents)
-    @contents = initial_contents || {}
+  def initialize(initial_contents = {})
+    @contents = initial_contents
   end
 
   def total_count
@@ -16,6 +16,10 @@ class Cart
 
   def update_quantity(donation_id, quantity)
     contents[donation_id] = quantity.to_i
+  end
+
+  def remove_item(donation_id)
+    contents.delete(donation_id.to_s)
   end
 
   def count_of(donation_id)
