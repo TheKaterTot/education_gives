@@ -14,4 +14,11 @@ class CartController < ApplicationController
     redirect_to donations_path
   end
 
+  def update
+    @cart.update_quantity(params[:id], params[:cart][:quantity])
+    session[:cart] = @cart.contents
+
+    redirect_to cart_index_path
+  end
+
 end

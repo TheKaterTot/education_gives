@@ -11,7 +11,12 @@
   <td><%= image_tag donation.image_path %></td>
   <td><%= donation.title %></td>
   <td><%= donation.price %></td>
-  <td><%= quantity %></td>
+  <td>
+    <%= form_for :cart, url: cart_path(donation.id), method: :put do |f| %>
+      <%= f.text_field :quantity, value: quantity %>
+      <%= f.submit "Update" %>
+    <% end %>
+  </td>
   <td><%= donation.subtotal(quantity) %></td>
 </tr>
 <% end %>

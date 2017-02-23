@@ -14,6 +14,10 @@ class Cart
     contents[donation_id.to_s] += 1
   end
 
+  def update_quantity(donation_id, quantity)
+    contents[donation_id] = quantity.to_i
+  end
+
   def count_of(donation_id)
     contents[donation_id.to_s]
   end
