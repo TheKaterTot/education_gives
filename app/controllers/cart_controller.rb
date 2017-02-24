@@ -5,7 +5,7 @@ class CartController < ApplicationController
   end
 
   def create
-    donation = Donation.find(params[:donation_id])
+    donation = Donation.active.find(params[:donation_id])
 
     @cart.add_donation(donation.id)
     session[:cart] = @cart.contents
@@ -22,7 +22,7 @@ class CartController < ApplicationController
   end
 
   def destroy
-    donation = Donation.find(params[:id])
+    donation = Donation.active.find(params[:id])
     link = view_context.link_to donation.title, donation_path(donation)
     @cart.remove_item(donation.id)
     flash[:success] = "Successfully removed #{link} from your cart."
