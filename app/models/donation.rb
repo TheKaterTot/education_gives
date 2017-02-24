@@ -7,4 +7,8 @@ class Donation < ApplicationRecord
   def subtotal(quantity)
     price * quantity
   end
+
+  def self.active
+    where(active: true)
+  end
 end
