@@ -2,7 +2,11 @@ class OrdersController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @orders = Order.all
+    if current_user
+      @orders = current_user.orders
+    else
+      # display 404 page
+    end
   end
 
   def show
