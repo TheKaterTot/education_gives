@@ -11,13 +11,10 @@ RSpec.describe "Visitor doesn't see checkout in cart" do
 
     expect(current_path).to eq cart_index_path
     expect(page).to have_content("#{donation.title}")
-    # expect(page).to have_selector(:link_or_button, "Login or Register to Checkout")
-    expect(page).to have_selector(:link_or_button, "Login")
-    expect(page).to have_selector(:link_or_button, "Register to Checkout")
-    click_on "Register to Checkout"
-
-    # click_on "Create Account"
-    # click_on "Register to Checkout"
+    expect(page).to have_selector(:link_or_button, "Login or Register to Checkout")
+    
+    click_on "Login or Register to Checkout"
+    click_on "Create Account"
 
     expect(current_path).to eq new_user_path
 

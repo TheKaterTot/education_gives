@@ -10,10 +10,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # order = Order.new(username: "Rachel")
-    # cart.contents.each do |donation_id, quantity|
-    #   order.donations.new(donation_id: donation_id, quantity: quantity)
-    # end
+    user = User.find(session[:user_id])
+    order = Order.new(user: user)
+     @cart.contents.each do |donation_id, quantity|
+       order.donations.new(id: donation_id)
+       OrderDonation.new(order_id: order.id, donation_id: donation_id, quantity: quantity)
+     end
 
     if order.save
       session[:cart] = nil
