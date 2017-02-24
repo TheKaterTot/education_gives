@@ -6,4 +6,8 @@ class Order < ApplicationRecord
   def display_create_date
     created_at.strftime("%m-%d-%Y")
   end
+
+  def total
+    details.sum(:subtotal)
+  end
 end
