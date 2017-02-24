@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170223233736) do
+ActiveRecord::Schema.define(version: 20170224005005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20170223233736) do
     t.float    "price"
     t.string   "image_path"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "active",      default: true
     t.index ["category_id"], name: "index_donations_on_category_id", using: :btree
   end
 
