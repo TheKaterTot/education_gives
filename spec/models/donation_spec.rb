@@ -30,4 +30,16 @@ RSpec.describe Donation, type: :model do
 
     expect(Donation.active.to_a).to eq([donation_1])
   end
+
+  it "can give subtotal of donation" do
+    donation_1 = create(:donation)
+
+    expect(donation_1.subtotal(3)).to eq(1500.0)
+  end
+
+  it "confirms that donation is active by default" do
+    donation = create(:donation)
+
+    expect(donation.active).to eq(true)
+  end
 end
