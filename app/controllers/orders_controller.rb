@@ -10,11 +10,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # the four lines below probably would be best delegated to a GameCreator PORO
-    order = Order.new(user_name: "Rachel")
-    cart.contents.each do |donation_id, quantity|
-      order.donations.new(donation_id: donation_id, quantity: quantity)
-    end
+    # order = Order.new(username: "Rachel")
+    # cart.contents.each do |donation_id, quantity|
+    #   order.donations.new(donation_id: donation_id, quantity: quantity)
+    # end
 
     if order.save
       session[:cart] = nil

@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 Donation.destroy_all
 Category.destroy_all
 
@@ -12,27 +5,46 @@ music = Category.create(name: "music")
 science = Category.create(name: "science")
 library = Category.create(name: "library")
 
-donation1 = science.donations.create(title: "Bike to school",
-                                     description: "Transportation to get to school",
-                                     price: 50,
-                                     image_path: "#")
+science.donations.create(title: "Bike to school",
+                         description: "Transportation to get to school",
+                         price: 50,
+                         image_path: "#")
 
-donation2 = music.donations.create(title: "School lunch",
-                                   description: "Monthly fee for school lunch",
-                                   price: 20,
-                                   image_path: "#")
+music.donations.create(title: "School lunch",
+                       description: "Monthly fee for school lunch",
+                       price: 20,
+                       image_path: "#")
 
-donation3 = library.donations.create(title: "New Violin",
-                                     description: "Our music club needs new violins for the regional competition.",
-                                     price: 100.0,
-                                     image_path: "#")
+library.donations.create(title: "New Violin",
+                         description: "Our music club needs new violins for the regional competition.",
+                         price: 100.0,
+                         image_path: "#")
 
-donation4 = science.donations.create(title: "New Microsope",
-                                     description: "We are expanding our science department to include a unit on microbiology.",
-                                     price: 200.0,
-                                     image_path: "#")
+science.donations.create(title: "New Microsope",
+                         description: "We are expanding our science department to include a unit on microbiology.",
+                         price: 200.0,
+                         image_path: "#")
 
-donation5 = library.donations.create(title: "Library Books",
-                                     description: "We need to replace old, worn-out books for student free time.",
-                                     price: 50.0,
-                                     image_path: "#")
+library.donations.create(title: "Library Books",
+                         description: "We need to replace old, worn-out books for student free time.",
+                         price: 50.0,
+                         image_path: "#")
+
+10.times do
+  f = Faker::Name.first_name
+  l = Faker::Name.last_name
+  u = "#{f.downcase}-#{l.downcase}"
+  e = Faker::Internet.safe_email(u)
+  User.create(first_name: f, last_name: l, email: e, username: u, password: "a")
+end
+
+30.times do
+  u = User.pluck(:id).sample
+  s = [:ordered, :paid, :completed, :cancelled].sample
+  o = Order.create(user_id: u, status: s)
+  n = rand(1..5)
+  Donation.pluck(:id).sample(n).each do |d|
+    q = rand(1..10)
+    o.details.create(donation_id: d, quantity: q)
+  end
+end
