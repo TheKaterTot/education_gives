@@ -25,16 +25,16 @@ RSpec.describe Donation, type: :model do
   end
 
   it "returns only active donations" do
-    donation_1 = create(:donation)
+    donation1 = create(:donation)
     create(:donation, active: false)
 
-    expect(Donation.active.to_a).to eq([donation_1])
+    expect(Donation.active.to_a).to eq([donation1])
   end
 
   it "can give subtotal of donation" do
-    donation_1 = create(:donation)
+    donation1 = create(:donation)
 
-    expect(donation_1.subtotal(3)).to eq(1500.0)
+    expect(donation1.subtotal(3)).to eq(1500.0)
   end
 
   it "confirms that donation is active by default" do
