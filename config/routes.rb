@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :donations, only: [:index, :show]
   resources :cart#, only: [:index, :create, :update]
 
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create]
+
+  resources :orders, only: [:index]
 
   get ":slug" => "categories#show", :as => "category"
 end

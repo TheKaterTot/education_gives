@@ -3,4 +3,8 @@
 <%= @donation.price %><br />
 <%= image_tag @donation.image_path %><br />
 
-<%= button_to "Add to Cart", cart_index_path(donation_id: @donation.id), class: "btn btn-danger" %>
+<% if @donation.active %>
+  <%= button_to "Add to Cart", cart_index_path(donation_id: @donation.id), class: "btn btn-danger" %>
+<% else %>
+  <p>Donation Retired</p>
+<% end %>

@@ -3,9 +3,9 @@
     <%= image_tag donation.image_path %>
     <p><%= link_to donation.title, donation_path(donation) %></p>
     <p><%= donation.price %></p>
-
-    <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id),
-        class: "btn btn-danger" %>
-
+    <% if donation.active %>
+      <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id),
+          class: "btn btn-danger" %>
+    <% end %>    
   </div>
 <% end %>
