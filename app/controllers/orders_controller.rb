@@ -10,19 +10,22 @@ class OrdersController < ApplicationController
   end
 
   def create
-    user = User.find(session[:user_id])
-    order = Order.new(user: user)
-     @cart.contents.each do |donation_id, quantity|
-       order.donations.new(id: donation_id)
-       OrderDonation.new(order_id: order.id, donation_id: donation_id, quantity: quantity)
-     end
-
+    order = Order.new(user: current_user)
+    @cart.contents.each do |donation_id, quantity|
+      donation = Donation.find(donation_id)
+      order.donations << donation
+      make_order_donation(donation_id, order.id, quantity)
+    end
     if order.save
       session[:cart] = nil
-      flash[:notice] = "Your cart is ready. You kindly chose to give #{cart.donations.count} donations."
-      redirect_to donations_path
+      flash[:notice] = "Order was successfully placed."
+      redirect_to orders_path
     else
       # implement if you have validations
     end
+  end
+
+  def make_order_donation(donation_id, order_id, quantity)
+    OrderDonation.create(donation_id: donation_id, order_id: order_id, quantity: quantity)
   end
 end
