@@ -28,3 +28,10 @@
   <th><%= @cart.total %></th>
 </tr>
 </table>
+
+<% if current_user%>
+  <%= button_to "Checkout", orders_path %>
+<% else %>
+  <%= button_to "Login", login_path %>
+  <%= button_to "Register to Checkout", new_user_path, method: :get %>
+<% end %>
