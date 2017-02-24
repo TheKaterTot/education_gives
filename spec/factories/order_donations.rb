@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :order_donation do
-    order nil
-    donation nil
-    quantity 1
+    order
+    donation
+    quantity { rand(1..10) }
   end
 end
