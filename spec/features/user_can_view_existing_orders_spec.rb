@@ -12,31 +12,22 @@ feature "User can view a past order" do
 
     expect(page).to have_content(orders[0].id)
     expect(page).to have_content(orders[1].id)
-    expect(page).to have_content(orders[2].id)
     expect(page).to_not have_content(other_orders[0].id)
     expect(page).to_not have_content(other_orders[1].id)
-    expect(page).to_not have_content(other_orders[2].id)
 
     within("#order-#{orders[0].id}") do
       expect(page).to have_content(orders[0].id)
-      expect(page).to have_content(orders[0].display_create_at)
+      expect(page).to have_content(orders[0].display_create_date)
       expect(page).to have_content(orders[0].total)
-      expect(page).to have_content(orders[0].status)
-      expect(page).to have_link("View Details", href: dashboard_path(orders[0]))
+      expect(page).to have_content(orders[0].display_status)
+      expect(page).to have_link("View Details", href: order_path(orders[0]))
     end
     within("#order-#{orders[1].id}") do
       expect(page).to have_content(orders[1].id)
-      expect(page).to have_content(orders[1].display_create_at)
+      expect(page).to have_content(orders[1].display_create_date)
       expect(page).to have_content(orders[1].total)
-      expect(page).to have_content(orders[1].status)
-      expect(page).to have_link("View Details", href: dashboard_path(orders[1]))
-    end
-    within("#order-#{orders[2].id}") do
-      expect(page).to have_content(orders[2].id)
-      expect(page).to have_content(orders[2].display_create_at)
-      expect(page).to have_content(orders[2].total)
-      expect(page).to have_content(orders[2].status)
-      expect(page).to have_link("View Details", href: dashboard_path(orders[2]))
+      expect(page).to have_content(orders[1].display_status)
+      expect(page).to have_link("View Details", href: order_path(orders[1]))
     end
   end
 end

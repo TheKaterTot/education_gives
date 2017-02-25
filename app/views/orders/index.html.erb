@@ -9,11 +9,12 @@
     <th>View Details</th>
   </tr>
   <% @orders.each do |order| %>
-    <tr>
+    <tr id=order-<%= order.id %>>
       <td><%= order.id %></td>
       <td><%= order.display_create_date %></td>
+      <td><%= order.display_status %></td>
       <td><%= order.total %></td>
-      <td><%= link_to "View Details", dashboard_path(order) %></td>
+      <td><%= link_to "View Details", order_path(order) %></td>
     </tr>
   <% end %>
 </table>

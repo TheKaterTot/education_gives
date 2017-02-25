@@ -1,47 +1,49 @@
 require 'rails_helper'
 
-RSpec.describe "User sees all donations in an order" do
+RSpec.describe "User can view one order" do
   scenario "User sees all donations in an order" do
     user = create(:user)
-    orders = create_list(:order_with_donations, 2, user: user)
-    donations = orders.first.donations
-    order_details = orders.first.details
+    order_paid = create(:order_with_donations, user: user, status: "paid")
+    order_completed = create(:order_with_donations, user: user, status: "completed")
+    donations = order_paid.donations
+    order_details = order_paid.details
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit order_path(orders.first)
-    binding.pry
+    visit orders_path
 
-    within("#donation-#{donation[0].id}") do
-      expect(page).to have_css("img[src*='#{donation[0].image_path}']")
-      expect(page).to have_content(donation[0].title)
-      # expect(page).to have_content(donation[0].description)
-      expect(page).to have_content(donation[0].price)
-      expect(page).to have_content(donation[0].quantity)
+    within("#order-#{order_completed.id}") do
+      click_link "View Details"
+    end
+
+    expect(current_path).to eq(order_path(order_completed))
+    within("#order-info") do
+      expect(page).to have_content("Completed")
+      expect(page).to have_content(order_completed.total)
+      expect(page).to have_content(order_completed.display_create_date)
+      expect(page).to have_content(order_completed.display_update_date)
+    end
+
+    visit order_path(order_paid)
+    within("#order-info") do
+      expect(page).to have_content("Paid")
+      expect(page).to have_content(order_completed.total)
+      expect(page).to have_content(order_completed.display_create_date)
+      expect(page).to have_content(order_completed.display_update_date)
+    end
+    within("#donation-#{donations[0].id}") do
+      expect(page).to have_link(donations[0].title, href: donation_path(donations[0]))
       expect(page).to have_content(order_details[0].quantity)
-      # expect(page).to have_content(order_details[0].subtotal)
+      expect(page).to have_content(order_details[0].subtotal)
     end
-    within("#donation-#{donation[1].id}") do
-      expect(page).to have_css("img[src*='#{donation[1].image_path}']")
-      expect(page).to have_content(donation[1].title)
-      # expect(page).to have_content(donation[1].description)
-      expect(page).to have_content(donation[1].price)
-      expect(page).to have_content(donation[1].quantity)
+    within("#donation-#{donations[1].id}") do
+      expect(page).to have_link(donations[1].title, href: donation_path(donations[1]))
       expect(page).to have_content(order_details[1].quantity)
-      # expect(page).to have_content(order_details[1].subtotal)
+      expect(page).to have_content(order_details[1].subtotal)
     end
-    within("#donation-#{donation[2].id}") do
-      expect(page).to have_css("img[src*='#{donation[2].image_path}']")
-      expect(page).to have_content(donation[2].title)
-      # expect(page).to have_content(donation[2].description)
-      expect(page).to have_content(donation[2].price)
-      expect(page).to have_content(donation[2].quantity)
+    within("#donation-#{donations[2].id}") do
+      expect(page).to have_link(donations[2].title, href: donation_path(donations[2]))
       expect(page).to have_content(order_details[2].quantity)
-      # expect(page).to have_content(order_details[2].subtotal)
+      expect(page).to have_content(order_details[2].subtotal)
     end
-
-    within("#total") do
-      # expect(page).to have_content(order.total)
-    end
-
   end
 end
