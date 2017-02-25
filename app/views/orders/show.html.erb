@@ -1,0 +1,35 @@
+<h1>Order Number: <%= @order.id %></h1>
+<table id=order-info>
+  <tr>
+    <td>Total</td>
+    <td>Current Status</td>
+    <td>Start Date</td>
+    <td>End Date</td>
+  </tr>
+  <tr>
+    <td><%= @order.total %></td>
+    <td><%= @order.display_status %></td>
+    <td><%= @order.display_create_date %></td>
+    <td><%= @order.display_update_date  %></td>
+    <% if ["completed", "canceled"].include? @order.status %>
+      <td><%= @order.display_update_date %></td>
+    <% end %>
+  </tr>
+</table>
+<table>
+<tr>
+  <th>Info</th>
+  <th>Quantity</th>
+  <th>Subtotal</th>
+  <th></th>
+</tr>
+<% @order.details.each do |order_donation| %>
+<tr id=donation-<%= order_donation.donation.id %>>
+  <td><%= link_to order_donation.donation.title, donation_path(order_donation.donation) %></td>
+  <td><%= order_donation.quantity %></td>
+  <td><%= order_donation.subtotal %></td>
+</tr>
+<% end %>
+</table>
+
+<%= link_to "Return to All Orders", orders_path, class: "btn" %>
