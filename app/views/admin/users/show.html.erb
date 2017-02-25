@@ -1,1 +1,29 @@
 <h1>Admin Dashboard</h1>
+<h2>All Orders</h2>
+
+<table>
+  <tr>
+    <th>Order Number</th>
+    <th>Order Date</th>
+    <th>Order Total</th>
+    <th>Order Status</th>
+    <th>View Details</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr id=order-<%= order.id %>>
+      <td id=id-<%= order.id %>><%= order.id %></td>
+      <td><%#= order.display_create_date %></td>
+      <td><%= order.display_status %></td>
+      <td><%#= order.total %></td>
+      <td><%= link_to "View Order", order_path(order) %></td>
+      <td >
+        <% order.next_status.each do |next_status| %>
+          <%= form_for order, url: order_path(order), method: :put do |f| %>
+            <%= f.text_field :status, value: next_status, type: :hidden %>
+            <%= f.submit "Mark as #{next_status}" %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
