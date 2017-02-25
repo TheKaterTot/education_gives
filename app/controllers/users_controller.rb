@@ -19,7 +19,20 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
     else
-      render file: '/public/404' 
+      render file: '/public/404'
+    end
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    current_user.update_attributes(user_params)
+    if current_user.save
+      redirect_to dashboard_path
+    else
+      render :edit
     end
   end
 

@@ -10,7 +10,7 @@
   </tr>
   <% @orders.each do |order| %>
     <tr id=order-<%= order.id %>>
-      <td><%= order.id %></td>
+      <td id=id-<%= order.id %>><%= order.id %></td>
       <td><%= order.display_create_date %></td>
       <td><%= order.display_status %></td>
       <td><%= order.total %></td>
