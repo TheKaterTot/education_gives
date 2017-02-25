@@ -12,10 +12,20 @@ class Order < ApplicationRecord
   end
 
   def total
-    # details.sum(:subtotal)
+    details.sum(:subtotal)
   end
 
   def display_status
     status.capitalize
+  end
+
+  def next_status
+    if status == "ordered"
+      ["paid", "cancelled"]
+    elsif status == "paid"
+      ["completed", "cancelled"]
+    else
+      []
+    end
   end
 end

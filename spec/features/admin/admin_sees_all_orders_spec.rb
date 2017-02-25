@@ -1,26 +1,51 @@
 require 'rails_helper'
 
-RSpec.describe "User sees all orders" do
-  xscenario "user can see all orders" do
-    user = create(:user)
-    #make the user an admin
-    order1 = create(:order)
-    #make this order ordered
-    order2 = create(:order)
-    #make this order paid
-    order3 = create(:order)
-    #make this order cancelled
-    order4 = create(:order)
-    #make this order completed
+RSpec.describe "Admin sees all orders" do
+  scenario "admin can see all orders" do
+    admin = create(:user, role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit dashboard_path
+    ordered = create(:order, status: "ordered")
+    paid = create(:order, status: "paid")
+    cancelled = create(:order, status: "cancelled")
+    completed = create(:orgitder, status: "completed")
+
+    visit admin_dashboard_path
 
     expect(page).to have_content("All Orders")
-    expect(page).to have_content("#{order1.donation}")
-    expect(page).to have_selector(:link_or_button, "#{order1.donation}")
-    expect(page).to have_selector(:link_or_button, "Paid")
-    expect(page).to have_selector(:link_or_button, "Cancel")
-    expect(page).to have_selector(:link_or_button, "Mark as paid")
-    expect(page).to have_selector(:link_or_button, "Mark as completed")
+
+    within("#order-#{ordered.id}") do
+      expect(find("#id-#{ordered.id}")).to have_content(ordered.id)
+      expect(page).to have_content("Ordered")
+      expect(page).to have_link("View Order", href: order_path(ordered))
+      expect(page).to have_button("Mark as paid")
+      expect(page).to have_button("Mark as cancelled")
+    end
+
+    within("#order-#{paid.id}") do
+      expect(find("#id-#{paid.id}")).to have_content(paid.id)
+      expect(page).to have_content("Paid")
+      expect(page).to have_link("View Order", href: order_path(paid))
+      expect(page).to have_button("Mark as completed")
+      expect(page).to have_button("Mark as cancelled")
+    end
+
+    within("#order-#{completed.id}") do
+      expect(find("#id-#{completed.id}")).to have_content(completed.id)
+      expect(page).to have_content("Completed")
+      expect(page).to have_link("View Order", href: order_path(completed))
+      expect(page).to_not have_button("Mark as paid")
+      expect(page).to_not have_button("Mark as completed")
+      expect(page).to_not have_button("Mark as cancelled")
+    end
+
+    within("#order-#{cancelled.id}") do
+      expect(find("#id-#{cancelled.id}")).to have_content(cancelled.id)
+      expect(page).to have_content("Cancelled")
+      expect(page).to have_link("View Order", href: order_path(cancelled))
+      expect(page).to_not have_button("Mark as paid")
+      expect(page).to_not have_button("Mark as completed")
+      expect(page).to_not have_button("Mark as cancelled")
+    end
   end
 end
