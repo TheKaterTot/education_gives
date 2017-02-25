@@ -1,6 +1,20 @@
-<h1>Your Order</h1>
-<% @orders.each do |order| %>
-  <% order.donations.each do |donation| %>
-  <%= donation.title %>
+<h1>Your Order History</h1>
+
+<table>
+  <tr>
+    <th>Order Number</th>
+    <th>Order Date</th>
+    <th>Order Total</th>
+    <th>Order Status</th>
+    <th>View Details</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr id=order-<%= order.id %>>
+      <td><%= order.id %></td>
+      <td><%= order.display_create_date %></td>
+      <td><%= order.display_status %></td>
+      <td><%= order.total %></td>
+      <td><%= link_to "View Details", order_path(order) %></td>
+    </tr>
   <% end %>
-<% end %>
+</table>

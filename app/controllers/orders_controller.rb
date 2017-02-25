@@ -2,11 +2,20 @@ class OrdersController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @orders = Order.all
+    if current_user
+      @orders = current_user.orders
+    else
+      render :file => 'public/404.html', :status => :not_found, :layout => false
+    end
   end
 
   def show
-    @order = Order.find(params[:order_id])
+    order = Order.find(params[:id])
+    if order && order.user == current_user
+      @order = order
+    else
+      render :file => 'public/404.html', :status => :not_found, :layout => false
+    end
   end
 
   def create
