@@ -25,7 +25,7 @@ RSpec.describe Cart, type: :model do
   it "should delete an item" do
     donation = create(:donation)
     cart = Cart.new
-    
+
     cart.add_donation(donation.id)
     cart.remove_item(donation.id)
 
