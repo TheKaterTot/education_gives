@@ -25,9 +25,18 @@ RSpec.describe Cart, type: :model do
   it "should delete an item" do
     donation = create(:donation)
     cart = Cart.new
+    
     cart.add_donation(donation.id)
     cart.remove_item(donation.id)
 
     expect(cart.contents.keys).to_not include(donation.id.to_s)
+  end
+
+  it "can update quantity for an item" do
+    cart = Cart.new({"1" => 1})
+
+    cart.add_donation(1)
+
+    expect(cart.count_of(1)).to eq(2)
   end
 end

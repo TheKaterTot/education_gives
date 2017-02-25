@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:success] = "Logged in successfully."
-      # redirect_to user_path(current_user)
       redirect_to dashboard_path
     else
       flash.now[:danger] = "Your login attempt was incorrect. Please try again."

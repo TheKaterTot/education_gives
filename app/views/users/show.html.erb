@@ -1,3 +1,7 @@
-<h1>My Profile</h1>
+<h1>Welcome, <%= @user.first_name %>!</h1>
 
-# And I should see my profile information
+
+<p>First name: <%= @user.first_name %><p>
+<p>Last name: <%= @user.last_name %><p>
+<p>Username: <%= @user.username %></p>
+<p>Registered email: <%= @user.email %></p>
