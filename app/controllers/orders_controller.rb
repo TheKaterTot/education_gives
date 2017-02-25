@@ -25,6 +25,8 @@ class OrdersController < ApplicationController
     end
   end
 
+  private
+
   def make_order_donation(donation_id, order_id, quantity)
     OrderDonation.create(donation_id: donation_id, order_id: order_id, quantity: quantity)
   end
