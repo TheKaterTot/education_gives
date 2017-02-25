@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "User places order" do
   scenario "user can place an order" do
-    donation = create(:donation)
+    create(:donation)
     user = create(:user)
 
     visit donations_path
@@ -27,6 +27,5 @@ RSpec.describe "User places order" do
     expect(current_path).to eq orders_path
     expect(page).to have_content("Order was successfully placed")
     expect(page).to have_content("Your Order")
-    expect(page).to have_content(donation.title)
   end
 end
