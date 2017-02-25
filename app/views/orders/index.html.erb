@@ -1,3 +1,6 @@
+<h1>Your Order</h1>
 <% @orders.each do |order| %>
-<%= order %>
+  <% order.donations.each do |donation| %>
+  <%= donation.title %>
+  <% end %>
 <% end %>
