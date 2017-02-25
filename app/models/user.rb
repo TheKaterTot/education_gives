@@ -3,4 +3,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :password, presence: true
   validates :username, presence:true, uniqueness: true
   has_many :orders
+
+  enum ({role: [:default, :admin]})
 end

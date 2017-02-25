@@ -45,6 +45,6 @@ end
   n = rand(1..5)
   Donation.pluck(:id).sample(n).each do |d|
     q = rand(1..10)
-    o.details.create(donation_id: d, quantity: q)
+    o.details.create(donation_id: d, quantity: q, subtotal: Donation.find(d).price * q)
   end
 end
