@@ -8,7 +8,7 @@ RSpec.describe "Admin sees all orders" do
     ordered = create(:order, status: "ordered")
     paid = create(:order, status: "paid")
     cancelled = create(:order, status: "cancelled")
-    completed = create(:orgitder, status: "completed")
+    completed = create(:order, status: "completed")
 
     visit admin_dashboard_path
 
