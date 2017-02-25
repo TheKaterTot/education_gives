@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     if current_user
       @orders = current_user.orders
     else
-      # display 404 page
+      render :file => 'public/404.html', :status => :not_found, :layout => false
     end
   end
 
@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     if order && order.user == current_user
       @order = order
     else
-      # display 404 page
+      render :file => 'public/404.html', :status => :not_found, :layout => false
     end
   end
 
