@@ -13,5 +13,6 @@ FactoryGirl.define do
       "username#{n}"
     end
     password "password"
+    role 0
   end
 end

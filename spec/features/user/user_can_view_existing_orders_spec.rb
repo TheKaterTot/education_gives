@@ -10,10 +10,10 @@ feature "User can view a past order" do
 
     visit orders_path
 
-    expect(page).to have_content(orders[0].id)
-    expect(page).to have_content(orders[1].id)
-    expect(page).to_not have_content(other_orders[0].id)
-    expect(page).to_not have_content(other_orders[1].id)
+    expect(find("#id-#{orders[0].id}")).to have_content(orders[0].id)
+    expect(find("#id-#{orders[1].id}")).to have_content(orders[1].id)
+    expect(page).to_not have_css("#id-#{other_orders[0].id}")
+    expect(page).to_not have_css("#id-#{other_orders[1].id}")
 
     within("#order-#{orders[0].id}") do
       expect(page).to have_content(orders[0].id)
