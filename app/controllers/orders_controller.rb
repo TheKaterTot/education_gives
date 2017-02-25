@@ -10,7 +10,12 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:order_id])
+    order = Order.find(params[:id])
+    if order && order.user == current_user
+      @order = order
+    else
+      # display 404 page
+    end
   end
 
   def create
