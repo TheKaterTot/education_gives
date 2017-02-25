@@ -7,5 +7,6 @@ FactoryGirl.define do
     price 500.0
     image_path "https://pixabay.com/p-147953/"
     category
+    active true
   end
 end

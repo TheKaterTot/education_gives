@@ -23,4 +23,11 @@ RSpec.describe Donation, type: :model do
     donation_category = FactoryGirl.build(:donation, category: nil)
     expect(donation_category).to_not be_valid
   end
+
+  it "returns only active donations" do
+    donation_1 = create(:donation)
+    create(:donation, active: false)
+
+    expect(Donation.active.to_a).to eq([donation_1])
+  end
 end
