@@ -15,4 +15,6 @@ RSpec.describe "Admin cannot modify users" do
     #click_on "My Profile"
 
     expect(current_path).to eq dashboard_path
+    #verify admin can modify admin Profile
+    #verify admin cannot modify other user profile
 end
