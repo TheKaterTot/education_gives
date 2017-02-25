@@ -12,10 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap/bootstrap-theme.min.css
+ *= require bootstrap/bootstrap.min.css
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Patua+One|Podkova:700|Sura:700|Volkhov:700');
 @import url('https://fonts.googleapis.com/css?family=Handlee|Satisfy|Bad+Script|Calligraffitti|Handlee|Merienda');
 
