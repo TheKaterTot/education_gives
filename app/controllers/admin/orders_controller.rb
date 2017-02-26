@@ -3,7 +3,7 @@ class Admin::OrdersController < ApplicationController
 
   def update
     order = Order.find(params[:id])
-    order.update_attributes(status: params[:order][:status])
+    order.update_attributes(status: order.next_status)
     redirect_to admin_dashboard_path
   end
 
