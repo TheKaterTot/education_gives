@@ -11,7 +11,7 @@
     <td><%= @order.display_status %></td>
     <td><%= @order.display_create_date %></td>
     <td><%= @order.display_update_date  %></td>
-    <% if ["completed", "canceled"].include? @order.status %>
+    <% if @order.completed? || @order.cancelled? %>
       <td><%= @order.display_update_date %></td>
     <% end %>
   </tr>

@@ -11,10 +11,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update]
 
-  resources :orders
+  resources :orders, only: [:index, :create, :show]
 
   namespace :admin do
     get "/dashboard", to: "users#show"
+    resources :orders, only: [:update, :destroy]
   end
 
   get ":slug" => "categories#show", :as => "category"
