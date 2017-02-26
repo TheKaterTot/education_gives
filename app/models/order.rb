@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  validates :status, presence: true
   belongs_to :user
   has_many :details, class_name: "OrderDonation"
   has_many :donations, through: :details
@@ -16,7 +17,7 @@ class Order < ApplicationRecord
   end
 
   def display_status
-    status.capitalize if status
+    status.capitalize
   end
 
   def next_status
@@ -27,16 +28,8 @@ class Order < ApplicationRecord
     end
   end
 
-  def completed?
-    status == "completed"
-  end
-
-  def cancellable?
-    ["paid", "ordered"].include?(status) && status != "cancelled"
-  end
-
-  def cancelled?
-    status == "cancelled"
+  def active?
+    Order.active_statuses.include? status
   end
 
   def cancel
@@ -44,8 +37,12 @@ class Order < ApplicationRecord
     save
   end
 
+  def self.active_statuses
+    %w(ordered paid)
+  end
+
   def self.valid_statuses
-    ["ordered", "paid", "cancelled", "completed"]
+    %w(ordered paid cancelled completed)
   end
 
   def self.count_by_status(status)

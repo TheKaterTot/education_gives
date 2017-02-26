@@ -33,16 +33,11 @@
       <td><%= order.display_status %></td>
       <td><%= link_to "View Order", order_path(order) %></td>
       <td >
-        <% unless order.completed? || order.cancelled? %>
+        <% if order.active? %>
           <%= form_for order, url: admin_order_path(order), method: :put do |f| %>
             <%= f.submit "Mark as #{order.next_status}" %>
           <% end %>
-        <% end %>
-
-        <% if order.cancellable? %>
-          <%= form_for order, url: admin_order_path(order), method: :delete do |f| %>
-          <%= f.submit "Mark as cancelled" %>
-          <% end %>
+          <%= button_to "Mark as cancelled", admin_order_path(order), method: :delete  %>
         <% end %>
       </td>
     </tr>
