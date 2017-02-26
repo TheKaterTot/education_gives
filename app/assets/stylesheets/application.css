@@ -83,3 +83,11 @@
   display: inline-block;
   margin: 10px;
 }
+
+.card p {
+  font-size: 14pt;
+}
+
+.card-block {
+  border-top: rgba(0, 0, 0, 0.125) solid 1px;
+}
