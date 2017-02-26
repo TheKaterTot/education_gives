@@ -32,16 +32,4 @@ class OrdersController < ApplicationController
       redirect_to cart_index_path
     end
   end
-
-  def update
-    order = Order.find(params[:id])
-    order.update_attributes(status: params[:order][:status])
-    redirect_to admin_dashboard_path
-  end
-
-  def destroy
-    order = Order.find(params[:id])
-    order.cancel
-    redirect_to admin_dashboard_path
-  end
 end
