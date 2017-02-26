@@ -91,3 +91,8 @@
 .card-block {
   border-top: rgba(0, 0, 0, 0.125) solid 1px;
 }
+
+.form-table tr th {
+  padding-right: 5px;
+  padding-top: 2px;
+}

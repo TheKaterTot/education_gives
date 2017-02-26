@@ -1,12 +1,28 @@
-<h1>If you have an account, please login:</h1>
-
+<h2>Sign In</h2>
+<br>
 <%= form_for :session, url: login_path do |f| %>
-  <%= f.label :username, "Username"%>
-  <%= f.text_field :username %>
-  <%= f.label :password, "Password" %>
-  <%= f.password_field :password %>
-  <%= f.submit "Login", method: :create, class: "button" %>
+  <table class="form-table">
+    <tr>
+      <th>
+        <%= f.label :username, "Username"%>
+      </th>
+      <td>
+        <%= f.text_field :username %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= f.label :password, "Password" %>
+      </th>
+      <td>
+        <%= f.password_field :password %>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <%= f.submit "Login", method: :create, class: "btn btn-primary" %>
 <% end %>
-
-<p>If you don't have an account, please create one</p>
-<%= link_to "Create Account", new_user_path %>
+<br><br>
+<h2>Sign Up</h2>
+<br>
+<%= link_to "Create Account", new_user_path, class: "btn btn-success" %>

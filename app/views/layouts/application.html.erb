@@ -62,7 +62,7 @@
           </ul>
           <p class="navbar-text navbar-right">
             <% if current_user == session[:user_id] %>
-              <%= link_to "Sign in", login_path, class: "navbar-link" %>
+              <%= link_to "Login", login_path, class: "navbar-link" %>
             <% else %>
             Logged in as <%= current_user.first_name %>.
               <%= link_to "Logout", logout_path, class: "navbar-link", method: :delete %>
