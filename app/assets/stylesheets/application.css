@@ -12,16 +12,22 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap/bootstrap-theme.min.css
+ *= require bootstrap/bootstrap-grid.min.css
+ *= require bootstrap/bootstrap-reboot.min.css
  *= require bootstrap/bootstrap.min.css
  */
 
 @import url('https://fonts.googleapis.com/css?family=Patua+One|Podkova:700|Sura:700|Volkhov:700');
 @import url('https://fonts.googleapis.com/css?family=Handlee|Satisfy|Bad+Script|Calligraffitti|Handlee|Merienda');
 
+.homepage {
+  padding: 20px;
+  background-color: red;
+}
+
 .title {
   font-family: 'Volkhov', serif;
-  font-size: 60px;
+  font-size: 55px;
   text-align: center;
 }
 
@@ -66,4 +72,14 @@
 
 #home-image {
   width: 100%;
+}
+
+.picture {
+  width: 300px;
+  height: 300px;
+}
+
+.card {
+  display: inline-block;
+  margin: 10px;
 }

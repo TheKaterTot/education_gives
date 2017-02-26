@@ -1,11 +1,12 @@
 <% @donations.each do |donation| %>
-  <div class="card" id=donation-<%= donation.id %> >
-    <%= image_tag donation.image.url(:medium) %>
-    <p><%= link_to donation.title, donation_path(donation) %></p>
-    <p><%= donation.price %></p>
-    <% if donation.active %>
-      <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id),
-          class: "btn btn-danger" %>
-    <% end %>
-  </div>
+    <div class="card" style="width: 320px;">
+      <%= image_tag donation.image.url(:medium), class: "card-img-top" %>
+      <div class="card-block">
+        <h4><%= link_to donation.title, donation_path(donation), class: "card_title" %></h4>
+        <p class="card-text"><%= donation.price %></p>
+        <% if donation.active %>
+            <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
 <% end %>
