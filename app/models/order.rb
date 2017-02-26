@@ -35,6 +35,10 @@ class Order < ApplicationRecord
     ["paid", "ordered"].include?(status) && status != "cancelled"
   end
 
+  def cancelled?
+    status == "cancelled"
+  end
+
   def cancel
     self.status = "cancelled"
     save

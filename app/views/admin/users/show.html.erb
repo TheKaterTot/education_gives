@@ -32,7 +32,7 @@
       <td><%= order.display_status %></td>
       <td><%= link_to "View Order", order_path(order) %></td>
       <td >
-        <% unless order.completed? %>
+        <% unless order.completed? || order.cancelled? %>
           <%= form_for order, url: admin_order_path(order), method: :put do |f| %>
             <%= f.submit "Mark as #{order.next_status}" %>
           <% end %>
