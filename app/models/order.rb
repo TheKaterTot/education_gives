@@ -44,13 +44,16 @@ class Order < ApplicationRecord
     save
   end
 
+  def self.valid_statuses
+    ["ordered", "paid", "cancelled", "completed"]
+  end
+
   def self.count_by_status(status)
     where(status: status).count
   end
 
   def self.count_for_all_statuses
-    statuses = ["ordered", "paid", "cancelled", "completed"]
-    statuses.reduce({}) do |counts, status|
+    Order.valid_statuses.reduce({}) do |counts, status|
       counts.merge!({status => Order.count_by_status(status)})
     end.merge!({"all" => Order.count})
   end
