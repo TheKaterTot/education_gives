@@ -9,7 +9,7 @@ RSpec.describe "Admin cannot modify users" do
 
     fill_in "Username", with: admin.username
     fill_in "Password", with: admin.password
-    click_on "Login"
+    click_on "Sign in"
 
     expect(current_path).to eq admin_dashboard_path
 

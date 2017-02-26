@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User places order" do
+RSpec.describe "User can place order" do
   scenario "user can place an order" do
     create(:donation)
     user = create(:user)
@@ -16,7 +16,7 @@ RSpec.describe "User places order" do
 
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
-    click_on "Login"
+    click_on "Sign in"
 
     expect(current_path).to eq dashboard_path
     click_on "Cart: 1"
