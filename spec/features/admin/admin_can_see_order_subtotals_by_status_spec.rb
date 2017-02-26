@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Admin can see order metrics" do
-  scenario "admin can see order metrics" do
+RSpec.describe "Admin can see order subtotals by status" do
+  scenario "admin can see order subtotals by status" do
 
     admin = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
@@ -13,7 +13,7 @@ RSpec.describe "Admin can see order metrics" do
 
     visit admin_dashboard_path
 
-    within("#total") do
+    within("#subtotals") do
       expect(page).to have_content("10")
       expect(page).to have_content("1")
       expect(page).to have_content("2")
