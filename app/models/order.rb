@@ -16,17 +16,28 @@ class Order < ApplicationRecord
   end
 
   def display_status
-    status.capitalize
+    status.capitalize if status
   end
 
   def next_status
     if status == "ordered"
-      ["paid", "cancelled"]
+      "paid"
     elsif status == "paid"
-      ["completed", "cancelled"]
-    else
-      []
+      "completed"
     end
+  end
+
+  def completed?
+    status == "completed"
+  end
+
+  def cancellable?
+    ["paid", "ordered"].include?(status) && status != "cancelled"
+  end
+
+  def cancel
+    self.status = "cancelled"
+    save
   end
 
   def self.count_by_status(status)

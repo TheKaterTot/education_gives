@@ -34,10 +34,15 @@
       <td><%#= order.total %></td>
       <td><%= link_to "View Order", order_path(order) %></td>
       <td >
-        <% order.next_status.each do |next_status| %>
+        <% unless order.completed? %>
           <%= form_for order, url: order_path(order), method: :put do |f| %>
-            <%= f.text_field :status, value: next_status, type: :hidden %>
-            <%= f.submit "Mark as #{next_status}" %>
+            <%= f.text_field :status, value: order.next_status, type: :hidden %>
+            <%= f.submit "Mark as #{order.next_status}" %>
+          <% end %>
+        <% end %>
+        <% if order.cancellable? %>
+          <%= form_for order, url: order_path(order), method: :delete do |f| %>
+          <%= f.submit "Mark as cancelled" %>
           <% end %>
         <% end %>
       </td>
