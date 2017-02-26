@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Visitor doesn't see checkout in cart" do
+RSpec.describe "Visitor cannot see checkout in cart" do
   scenario "visitor cannot see checkout in cart" do
     donation = create(:donation)
     visit donation_path(donation)
@@ -12,7 +12,7 @@ RSpec.describe "Visitor doesn't see checkout in cart" do
     expect(current_path).to eq cart_index_path
     expect(page).to have_content("#{donation.title}")
     expect(page).to have_selector(:link_or_button, "Login or Register to Checkout")
-    
+
     click_on "Login or Register to Checkout"
     click_on "Create Account"
 

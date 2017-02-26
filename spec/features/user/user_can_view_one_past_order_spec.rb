@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "User can view one order" do
+RSpec.describe "User can view one past order" do
   scenario "User sees all donations in an order" do
     user = create(:user)
     order_paid = create(:order_with_donations, user: user, status: "paid")

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User can view a past order" do
+feature "User can view all past orders" do
   scenario "by going to the order index page" do
     user = create(:user)
     orders = create_list(:order_with_donations, 2, user: user)

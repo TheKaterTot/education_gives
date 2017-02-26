@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Visitor has limited access" do
+RSpec.describe "Visitor can have limited access" do
   scenario "visitor cannot view other user's private data" do
     visit dashboard_path
     expect(page).to have_content("404")

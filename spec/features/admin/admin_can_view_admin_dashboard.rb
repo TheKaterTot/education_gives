@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "User Admin Dashboard exists" do
+feature "Admin can view the admin dashboard" do
   scenario "as an Admin I can view Admin Dashboard" do
     admin = User.create(
       first_name: "Admin",
@@ -12,7 +12,7 @@ feature "User Admin Dashboard exists" do
     )
 
     visit login_path
-    
+
     fill_in "Username", with: admin.username
     fill_in "Password", with: admin.password
     click_on "Login"

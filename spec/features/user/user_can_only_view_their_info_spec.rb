@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "Authenticated user security" do
+feature "User can only view their info" do
   scenario "an authenticated user can't see another user's dashboard" do
     user = User.create(first_name: "Jane", last_name: "Doe", email: "janedoe@email.com", username: "janedoe", password: "password", role: 0)
     user2 = User.create(first_name: "John", last_name: "Doe", email: "johndoe@email.com", username: "johndoe", password: "password", role: 0)
@@ -13,7 +13,7 @@ feature "Authenticated user security" do
     expect(page).to_not have_content("Welcome, John!")
 
     visit admin_dashboard_path
-    
+
     expect(page).to have_content("404")
   end
 end
