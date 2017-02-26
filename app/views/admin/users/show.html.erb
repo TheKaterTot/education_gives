@@ -1,13 +1,14 @@
 <h1>Admin Dashboard</h1>
 <h2>All Orders</h2>
 
-<table id="total">
+<table id="subtotals">
   <tr>
-    <th>All</th>
-    <th>Ordered</th>
-    <th>Paid</th>
-    <th>Completed</th>
-    <th>Cancelled</th>
+    <th><%= link_to "All", admin_dashboard_path %></th>
+    <% @statuses.each do |status| %>
+      <th>
+        <%= link_to status.capitalize, admin_dashboard_path(status: status) %>
+      </th>
+    <% end %>
   </tr>
   <tr>
     <td><%= @counts["all"]%></td>
