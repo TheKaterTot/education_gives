@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/dashboard", to: "users#show"
+  get "/update_account", to: "users#edit"
 
   resources :donations, only: [:index, :show]
   resources :cart#, only: [:index, :create, :update]
 
-  resources :users, only: [:new, :create, :edit, :update]
+  resources :users, only: [:new, :create, :update]
 
   resources :orders, only: [:index, :create, :show]
 
