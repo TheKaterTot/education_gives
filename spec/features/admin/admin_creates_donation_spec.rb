@@ -12,15 +12,16 @@ feature "admin manages donations" do
 
     fill_in "donation[title]", with: "School Lunches"
     fill_in "donation[description]", with: "Buy a child's lunch for a year"
-    fill_in "donation[price]", with: "75.00"
-    attach_file "donation[image]", "spec/fixtures/capybara.jpg"
+    fill_in "donation[price]", with: "75"
+    select "Food", from: "donation[category_id]"
+    attach_file "donation[image_path]", "spec/fixtures/capybara.jpg"
 
     click_on "Create"
 
-    expect(current_path).to eq(admin_donation_path(Donation.last))
+    expect(current_path).to eq(donation_path(Donation.last))
     expect(page).to have_content("School Lunches")
     expect(page).to have_content("Buy a child's lunch for a year")
-    expect(page).to have_content("75.00")
+    expect(page).to have_content("75")
 
   end
 end
