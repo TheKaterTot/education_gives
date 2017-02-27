@@ -30,7 +30,7 @@ library.donations.create(title: "Library Books",
                          price: 50.0,
                          image_path: "#")
 
-admin = FactoryGirl.create(:user, role: 1, username: "admin", password: "password")
+admin = User.create(first_name: "Maria", last_name: "Smith", role: 1, username: "admin", password: "password")
 
 10.times do
   f = Faker::Name.first_name
