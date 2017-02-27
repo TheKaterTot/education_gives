@@ -1,56 +1,62 @@
+<% if @cart.contents.empty? %>
+<h1>Your Cart is Empty</h1>
+<br>
+<%= link_to "Add a Donation", donations_path, class: "btn btn-primary" %>
+<% else %>
 <h1>Your Cart</h1>
 <table class=index_table>
-<tr>
-  <th colspan="2">Info</th>
-  <th>Price</th>
-  <th>Quantity</th>
-  <th>Subtotal</th>
-  <th></th>
-</tr>
-<% @cart.cart_items.each do |item| %>
-<tr id=donation-<%= item.id %>>
-  <td><%= image_tag item.image_url(:thumb) %></td>
-  <td><%= item.title %></td>
-  <td><%= item.price %></td>
-  <td>
-    <table class=quantity-update>
-    <tr>
-      <td>
-        <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
-          <%= f.text_field :quantity, value: item.quantity+1, type: :hidden%>
-          <%= f.submit "+", class: "btn btn-xs btn-info quantity-button" %>
-        <% end %>
-      </td>
-      <td rowspan="2">
-        <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
-          <%= f.number_field :quantity, value: item.quantity, min: 1, id: "quantity-#{item.id}", class: "quantity-field" %>
-          <%= f.submit "Update", class: "btn btn-xs btn-warning" %>
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
-          <%= f.text_field :quantity, value: item.quantity-1, type: :hidden%>
-          <%= f.submit "-", class: "btn btn-xs btn-info quantity-button" %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-  </td>
-  <td><%= item.subtotal %></td>
-  <td><%= link_to "Remove", cart_path(item.id), method: :delete, class: "btn" %></td>
-</tr>
-<% end %>
-<tr id="total">
-  <th colspan="3"></th>
-  <th>TOTAL</th>
-  <th><%= @cart.total %></th>
-</tr>
+  <tr>
+    <th colspan="2">Info</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+    <th></th>
+  </tr>
+  <% @cart.cart_items.each do |item| %>
+  <tr id=donation-<%= item.id %>>
+    <td><%= image_tag item.image_url(:thumb) %></td>
+    <td><%= item.title %></td>
+    <td><%= item.price %></td>
+    <td>
+      <table class=quantity-update>
+        <tr>
+          <td>
+            <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
+            <%= f.text_field :quantity, value: item.quantity+1, type: :hidden%>
+            <%= f.submit "+", class: "btn btn-xs btn-info quantity-button" %>
+            <% end %>
+          </td>
+          <td rowspan="2">
+            <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
+            <%= f.number_field :quantity, value: item.quantity, min: 1, id: "quantity-#{item.id}", class: "quantity-field" %>
+            <%= f.submit "Update", class: "btn btn-xs btn-warning" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
+            <%= f.text_field :quantity, value: item.quantity-1, type: :hidden%>
+            <%= f.submit "-", class: "btn btn-xs btn-info quantity-button" %>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td><%= item.subtotal %></td>
+    <td><%= link_to "Remove", cart_path(item.id), method: :delete, class: "btn btn-xs btn-danger" %></td>
+  </tr>
+  <% end %>
+  <tr id="total">
+    <th colspan="3"></th>
+    <th>TOTAL</th>
+    <th><%= @cart.total %></th>
+  </tr>
 </table>
+<% end %>
 
 <% if current_user %>
-  <%= button_to "Checkout", orders_path %>
+<%= link_to "Checkout", orders_path, class: "btn btn-primary", method: :post %>
 <% else %>
-  <%= link_to "Login or Register to Checkout", login_path %>
+<%= link_to "Login or Register to Checkout", login_path, class: "btn btn-primary" %>
 <% end %>

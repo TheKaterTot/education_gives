@@ -1,10 +1,10 @@
-<%= @donation.title %><br />
-<%= @donation.description %><br />
-<%= @donation.price %><br />
-<%= image_tag @donation.image.url %><br />
+<%= image_tag @donation.image.url %>
+<h3><%= @donation.title %></h3>
+<p><%= @donation.description %></p>
+<p><%= @donation.display_price %></p>
 
 <% if @donation.active %>
-  <%= button_to "Add to Cart", cart_index_path(donation_id: @donation.id), class: "btn btn-danger" %>
+  <%= button_to "Add to Cart", cart_index_path(donation_id: @donation.id), class: "btn btn-primary" %>
 <% else %>
-  <p>Donation Retired</p>
+  <p class="btn btn-outline-primary">Donation Retired</p>
 <% end %>

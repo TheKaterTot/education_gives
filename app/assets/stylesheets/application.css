@@ -19,11 +19,6 @@
 @import url('https://fonts.googleapis.com/css?family=Patua+One|Podkova:700|Sura:700|Volkhov:700');
 @import url('https://fonts.googleapis.com/css?family=Handlee|Satisfy|Bad+Script|Calligraffitti|Handlee|Merienda');
 
-.homepage {
-  padding: 20px;
-  background-color: red;
-}
-
 .title {
   font-family: 'Volkhov', serif;
   font-size: 55px;
@@ -105,10 +100,6 @@
   color: white;
 }
 
-.button-table tr th {
-
-}
-
 .index-table th,
 .index-table td,
 .button-table th,
@@ -122,6 +113,29 @@
 }
 
 .quantity-field {
-  width: 50px;
+  width: 45px;
+}
+
+.quantity-update td {
+  padding: 1px;
+  border: 1px solid #fff;
+}
+
+.quantity-button {
+  font-weight: bold;
+  height: 22px;
+  width: 22px;
+}
+
+.btn-outline-primary {
+  color: #2e6da4;
+  background-color: white;
+  border-color: #2e6da4;
+}
+
+.btn-outline-primary:hover {
+  color: #adadad;
+  background-color: white;
+  border-color: #adadad;
 }
 
