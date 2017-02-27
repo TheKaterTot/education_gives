@@ -1,5 +1,5 @@
 <h1>Your Cart</h1>
-<table>
+<table class=index_table>
 <tr>
   <th colspan="2">Info</th>
   <th>Price</th>
@@ -9,7 +9,7 @@
 </tr>
 <% @cart.cart_items.each do |item| %>
 <tr id=donation-<%= item.id %>>
-  <td><%= image_tag item.image_url %></td>
+  <td><%= image_tag item.image_url(:thumb) %></td>
   <td><%= item.title %></td>
   <td><%= item.price %></td>
   <td>
@@ -53,6 +53,4 @@
   <%= button_to "Checkout", orders_path %>
 <% else %>
   <%= link_to "Login or Register to Checkout", login_path %>
-  <%# button_to "Login", login_path %>
-  <%# button_to "Register to Checkout", new_user_path, method: :get %>
 <% end %>

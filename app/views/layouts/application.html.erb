@@ -46,7 +46,7 @@
     <nav class="navbar navbar-light">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href=<%= root_path %>>
             Education Gives
           </a>
           <ul class="nav navbar-nav navbar-left">
@@ -54,7 +54,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "My Account", dashboard_path %></li>
-                <li><%= link_to "Make A Donation", "#" %></li>
+                <li><%= link_to "Make A Donation", donations_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to "Home", "#" %></li>
               </ul>

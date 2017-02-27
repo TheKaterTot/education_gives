@@ -16,6 +16,10 @@ class Order < ApplicationRecord
     details.sum(:subtotal)
   end
 
+  def display_total
+    total
+  end
+
   def display_status
     status.capitalize
   end

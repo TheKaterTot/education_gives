@@ -96,3 +96,33 @@
   padding-right: 5px;
   padding-top: 2px;
 }
+
+.index-table tr th {
+  background-color: #ddd;
+  text-align: center;
+}
+
+.index-table tr th a {
+  color: white;
+}
+
+.button-table tr th {
+
+}
+
+.index-table th,
+.index-table td,
+.button-table th,
+.button-table td {
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+.index-table tr:hover {
+  background-color: #f5f5f5
+}
+
+.quantity-field {
+  width: 50px;
+}
+
