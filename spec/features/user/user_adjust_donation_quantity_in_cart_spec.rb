@@ -19,7 +19,33 @@ RSpec.describe "User adjusts quantity of donation in cart" do
 
   end
 
-  xscenario "User adjusts multiple donations in the cart" do
-    #build this test later to verify total is updated as well
+  scenario "User adjusts multiple donations in the cart" do
+    donation1 = create(:donation)
+    donation2 = create(:donation)
+
+    visit donation_path(donation1)
+    click_on "Add to Cart"
+
+    visit donation_path(donation2)
+    click_on "Add to Cart"
+
+    visit cart_index_path
+    within("#donation-#{donation1.id}") do
+      fill_in "cart[quantity]", with: 10
+      click_on "Update"
+    end
+
+    within("#donation-#{donation1.id}") do
+      expect(page).to have_content("500")
+    end
+
+    within("#donation-#{donation2.id}") do
+      fill_in "cart[quantity]", with: 5
+      click_on "Update"
+    end
+
+    within("#donation-#{donation2.id}") do
+      expect(page).to have_content("250")
+    end
   end
 end
