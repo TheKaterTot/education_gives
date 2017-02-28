@@ -1,4 +1,8 @@
 class Admin::DonationsController < Admin::BaseController
+  def index
+    @donations = Donation.all
+  end
+
   def new
     @donation = Donation.new
     @categories = Category.all
