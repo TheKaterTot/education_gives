@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "User sees order details" do
-  scenario "user can see order details" do
+  xscenario "user can see order details" do
     user = create(:user)
     order_donation = create(:order_donation)
-    byebug
 
     visit order_path(order_donation.order_id)
 
