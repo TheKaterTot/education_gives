@@ -15,10 +15,13 @@ class CartController < ApplicationController
   end
 
   def update
-    @cart.update_quantity(params[:id], params[:cart][:quantity])
-    session[:cart] = @cart.contents
-
-    redirect_to cart_index_path
+    if @cart.update_quantity(params[:id], params[:cart][:quantity])
+      session[:cart] = @cart.contents
+      redirect_to cart_index_path
+    else
+      flash[:danger] = "Quantity must be greater than 1."
+      redirect_to cart_index_path
+    end
   end
 
   def destroy
