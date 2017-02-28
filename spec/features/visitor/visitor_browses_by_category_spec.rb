@@ -11,19 +11,19 @@ feature 'Visitor can browse by category' do
     within("#donation-#{donation1.id}") do
       expect(page).to have_link(donation1.title, href: donation_path(donation1))
       expect(page).to have_content(donation1.price)
-      expect(page).to have_css("img[src*='#{donation1.image_path}']")
+      expect(page).to have_css("img[src*='#{donation1.image.url}']")
     end
 
     within("#donation-#{donation2.id}") do
       expect(page).to have_link(donation2.title, href: donation_path(donation2))
       expect(page).to have_content(donation2.price)
-      expect(page).to have_css("img[src*='#{donation2.image_path}']")
+      expect(page).to have_css("img[src*='#{donation2.image.url}']")
     end
 
     within("#donation-#{donation3.id}") do
       expect(page).to have_link(donation3.title, href: donation_path(donation3))
       expect(page).to have_content(donation3.price)
-      expect(page).to have_css("img[src*='#{donation3.image_path}']")
+      expect(page).to have_css("img[src*='#{donation3.image.url}']")
     end
   end
 
@@ -37,19 +37,19 @@ feature 'Visitor can browse by category' do
     within("#donation-#{donation1.id}") do
       expect(page).to have_link(donation1.title, href: donation_path(donation1))
       expect(page).to have_content(donation1.price)
-      expect(page).to have_css("img[src*='#{donation1.image_path}']")
+      expect(page).to have_css("img[src*='#{donation1.image.url}']")
     end
 
     within("#donation-#{donation2.id}") do
       expect(page).to have_link(donation2.title, href: donation_path(donation2))
       expect(page).to have_content(donation2.price)
-      expect(page).to have_css("img[src*='#{donation2.image_path}']")
+      expect(page).to have_css("img[src*='#{donation2.image.url}']")
     end
 
     within("#donation-#{donation3.id}") do
       expect(page).to have_link(donation3.title, href: donation_path(donation3))
       expect(page).to have_content(donation3.price)
-      expect(page).to have_css("img[src*='#{donation3.image_path}']")
+      expect(page).to have_css("img[src*='#{donation3.image.url}']")
     end
   end
 end

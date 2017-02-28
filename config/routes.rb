@@ -20,5 +20,5 @@ Rails.application.routes.draw do
     resources :donations, only: [:new, :create]
   end
 
-  get ":slug" => "categories#show", :as => "category"
+  # get ":slug" => "categories#show", :as => "category"
 end

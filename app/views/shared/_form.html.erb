@@ -1,11 +1,11 @@
 <% @donations.each do |donation| %>
   <div class="card" id=donation-<%= donation.id %> >
-    <%= image_tag donation.image_path %>
+    <%= image_tag donation.image.url(:medium) %>
     <p><%= link_to donation.title, donation_path(donation) %></p>
     <p><%= donation.price %></p>
     <% if donation.active %>
       <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id),
           class: "btn btn-danger" %>
-    <% end %>    
+    <% end %>
   </div>
 <% end %>

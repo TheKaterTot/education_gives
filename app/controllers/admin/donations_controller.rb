@@ -17,6 +17,6 @@ class Admin::DonationsController < Admin::BaseController
   private
 
   def donation_params
-    params.require(:donation).permit(:title, :description, :price, :image_path, :category_id)
+    params.require(:donation).permit(:title, :description, :price, :image, :category_id)
   end
 end

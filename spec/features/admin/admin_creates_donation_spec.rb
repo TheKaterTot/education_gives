@@ -14,7 +14,7 @@ feature "admin manages donations" do
     fill_in "donation[description]", with: "Buy a child's lunch for a year"
     fill_in "donation[price]", with: "75"
     select "Food", from: "donation[category_id]"
-    attach_file "donation[image_path]", "spec/fixtures/capybara.jpg"
+    attach_file "donation[image]", "spec/fixtures/capybara.jpg"
 
     click_on "Create"
 
