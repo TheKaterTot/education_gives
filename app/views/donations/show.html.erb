@@ -1,7 +1,7 @@
 <%= @donation.title %><br />
 <%= @donation.description %><br />
 <%= @donation.price %><br />
-<%= image_tag @donation.image_path %><br />
+<%= image_tag @donation.image.url %><br />
 
 <% if @donation.active %>
   <%= button_to "Add to Cart", cart_index_path(donation_id: @donation.id), class: "btn btn-danger" %>

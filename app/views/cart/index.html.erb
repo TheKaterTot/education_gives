@@ -9,7 +9,7 @@
 </tr>
 <% @cart.display_cart.each_pair do |donation, quantity| %>
 <tr id=donation-<%= donation.id %>>
-  <td><%= image_tag donation.image_path %></td>
+  <td><%= image_tag donation.image.url %></td>
   <td><%= donation.title %></td>
   <td><%= donation.price %></td>
   <td>
