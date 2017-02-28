@@ -6,6 +6,7 @@ FactoryGirl.define do
     description "We need new computers for computer class."
     price 500.0
     image_path "https://pixabay.com/p-147953/"
+    image { File.open("spec/fixtures/capybara.jpg") }
     active true
     category
   end
