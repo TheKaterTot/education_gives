@@ -1,0 +1,16 @@
+<h1> Order details</h1>
+
+<%= @user.full_name %>
+<%= @user.email %>
+
+<% @donations.each do |donation| %>
+  <%= link_to donation.title, donation_path(donation)  %>
+  <% order_donation = OrderDonation.find_by(donation_id: donation.id, order_id: @order.id) %>
+  <%= order_donation.quantity %>
+  <%= donation.price %>
+  <%= order_donation.subtotal %>
+<% end %>
+
+<%= @order.created_at %>
+<%= @order.total %>
+<%= @order.status %>
