@@ -1,8 +1,11 @@
 class CategoriesController < ApplicationController
 
   def show
-    @category = Category.find_by(name: params[:slug])
-    @donations = @category.donations
+    if Category.find_by(name: params[:slug])
+      @category = Category.find_by(name: params[:slug])
+      @donations = @category.donations
+    else
+      render file: '/public/404'
+    end
   end
-
 end
