@@ -1,4 +1,9 @@
 class Admin::DonationsController < Admin::BaseController
+
+  def index
+    @donations = Donation.all
+  end
+
   def new
     @donation = Donation.new
     @categories = Category.all
@@ -11,6 +16,21 @@ class Admin::DonationsController < Admin::BaseController
       redirect_to donation_path(@donation)
     else
       render :new
+    end
+  end
+
+  def edit
+    @donation = Donation.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @donation = Donation.find(params[:id])
+    @donation.update(donation_params)
+    if @donation.save
+      redirect_to donation_path(@donation)
+    else
+      render :edit
     end
   end
 

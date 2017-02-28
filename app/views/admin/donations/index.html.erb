@@ -1,0 +1,8 @@
+<h1>All Donations(admin view)</h1>
+
+<% @donations.each do |donation| %>
+<%= donation.title %>
+<%= donation.description %>
+<%= donation.price %>
+<%= link_to "Edit Donation", edit_admin_donation_path(donation) %>
+<% end %>
