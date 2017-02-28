@@ -39,4 +39,35 @@ RSpec.describe Cart, type: :model do
 
     expect(cart.count_of(1)).to eq(2)
   end
+
+  describe "#total" do
+    it "returns the total of the item prices" do
+      donation_1 = create(:donation, price: 5)
+      donation_2 = create(:donation, price: 3)
+
+      cart = Cart.new(donation_1.id.to_s => 1, donation_2.id.to_s => 1)
+
+      expect(cart.total).to eq(8)
+    end
+  end
+
+  describe "#cart_items" do
+    it "returns an array of cart items" do
+      cart = Cart.new("1" => 5)
+
+      expect(cart.cart_items.count).to eq(1)
+      expect(cart.cart_items.first.class).to eq(CartItem)
+    end
+  end
+
+  describe "#purchase" do
+    it "returns true" do
+      donation = create(:donation, price: 5)
+      cart = Cart.new(donation.id.to_s => 1)
+      user = create(:user)
+
+      expect(cart.purchase(user)).to be true
+      expect(user.orders.count).to eq(1)
+    end
+  end
 end
