@@ -26,15 +26,29 @@ class Cart
     contents[donation_id.to_s]
   end
 
-  def display_cart
-    @contents.reduce({}) do |donations, (id, quantity)|
-      donations.merge!({Donation.find(id) => quantity})
+  def cart_items
+    @cart_items ||= contents.keys.map do |id|
+      CartItem.new(id, contents[id])
     end
   end
 
   def total
-    display_cart.reduce(0) do |sum, (donation, quantity)|
-      sum += donation.subtotal(quantity)
+    cart_items.reduce(0) do |sum, item|
+      sum += item.subtotal
     end
+  end
+
+  def purchase(user)
+    Order.transaction do
+      order = Order.create!(user: user)
+      contents.each do |donation_id, quantity|
+        OrderDonation.create!(order_id: order.id,
+                             donation_id: donation_id,
+                             quantity: quantity)
+      end
+    end
+    true
+  rescue
+    false
   end
 end

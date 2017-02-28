@@ -19,12 +19,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.new(user: current_user)
-    @cart.contents.each do |donation_id, quantity|
-      donation = Donation.find(donation_id)
-      order.donations << donation
-    end
-    if order.save
+    if @cart.purchase(current_user)
       session[:cart] = nil
       flash[:notice] = "Order was successfully placed."
       redirect_to orders_path
