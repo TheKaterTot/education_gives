@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     end
     if order.save
       session[:cart] = nil
-      flash[:notice] = "Order was successfully placed."
+      flash[:success] = "Order was successfully placed."
       redirect_to orders_path
     else
       redirect_to cart_index_path
