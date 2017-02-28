@@ -11,7 +11,6 @@ describe "User can update their information" do
     click_on "Login"
 
     expect(page).to have_content("Welcome, Jane!")
-    save_and_open_page
 
     click_on "Update Account"
 

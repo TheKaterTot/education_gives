@@ -15,4 +15,12 @@ class Donation < ApplicationRecord
   def self.active
     where(active: true)
   end
+
+  def display_active
+    if active
+      "Active"
+    else
+      "Retired"
+    end
+  end
 end
