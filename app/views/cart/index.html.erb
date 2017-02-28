@@ -7,19 +7,19 @@
   <th>Subtotal</th>
   <th></th>
 </tr>
-<% @cart.display_cart.each_pair do |donation, quantity| %>
-<tr id=donation-<%= donation.id %>>
-  <td><%= image_tag donation.image.url %></td>
-  <td><%= donation.title %></td>
-  <td><%= donation.price %></td>
+<% @cart.cart_items.each do |item| %>
+<tr id=donation-<%= item.id %>>
+  <td><%= image_tag item.image_url %></td>
+  <td><%= item.title %></td>
+  <td><%= item.price %></td>
   <td>
-    <%= form_for :cart, url: cart_path(donation.id), method: :put do |f| %>
-      <%= f.text_field :quantity, value: quantity, id: "quantity-#{donation.id}" %>
+    <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
+      <%= f.text_field :quantity, value: item.quantity, id: "quantity-#{item.id}" %>
       <%= f.submit "Update" %>
     <% end %>
   </td>
-  <td><%= donation.subtotal(quantity) %></td>
-  <td><%= link_to "Remove", cart_path(donation.id), method: :delete, class: "btn" %></td>
+  <td><%= item.subtotal %></td>
+  <td><%= link_to "Remove", cart_path(item.id), method: :delete, class: "btn" %></td>
 </tr>
 <% end %>
 <tr id="total">

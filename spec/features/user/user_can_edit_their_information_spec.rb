@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "User can update their information" do
   scenario "User change their information" do
-    user = create(:user, first_name:"Jane", username: "jane", password: "password")
+    create(:user, first_name:"Jane", username: "jane", password: "password")
 
     visit login_path
 
@@ -11,7 +11,6 @@ describe "User can update their information" do
     click_on "Login"
 
     expect(page).to have_content("Welcome, Jane!")
-    save_and_open_page
 
     click_on "Update Account"
 

@@ -18,3 +18,5 @@
 
 #Ignore images uploaded by paperclip
 public/system
+
+**/.DS_Store
