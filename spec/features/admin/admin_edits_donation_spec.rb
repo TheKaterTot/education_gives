@@ -10,15 +10,14 @@ RSpec.describe "Admin edits a donation" do
     allow_any_instance_of(ApplicationController)
     .to receive(:current_user).and_return(admin)
 
-    visit admin_donations_path
+    visit admin_donation_path(donation)
     click_on "Edit Donation"
 
     # page(current_path).to eq edit_admin_donation_path(donation)
-
     fill_in "donation[price]", with: "65"
-    click_on "Update"
+    click_on "Update Donation"
 
-    expect(current_path).to eq donation_path(donation)
+    expect(current_path).to eq admin_donation_path(donation)
     expect(page).to have_content("65")
   end
 end
