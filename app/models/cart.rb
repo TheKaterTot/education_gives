@@ -15,7 +15,11 @@ class Cart
   end
 
   def update_quantity(donation_id, quantity)
-    contents[donation_id] = quantity.to_i
+    if quantity.to_i < 1
+      false
+    else
+      contents[donation_id] = quantity.to_i
+    end
   end
 
   def remove_item(donation_id)

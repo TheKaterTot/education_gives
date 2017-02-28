@@ -13,10 +13,30 @@
   <td><%= item.title %></td>
   <td><%= item.price %></td>
   <td>
-    <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
-      <%= f.text_field :quantity, value: item.quantity, id: "quantity-#{item.id}" %>
-      <%= f.submit "Update" %>
-    <% end %>
+    <table class=quantity-update>
+    <tr>
+      <td>
+        <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
+          <%= f.text_field :quantity, value: item.quantity+1, type: :hidden%>
+          <%= f.submit "+", class: "btn btn-xs btn-info quantity-button" %>
+        <% end %>
+      </td>
+      <td rowspan="2">
+        <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
+          <%= f.number_field :quantity, value: item.quantity, min: 1, id: "quantity-#{item.id}", class: "quantity-field" %>
+          <%= f.submit "Update", class: "btn btn-xs btn-warning" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
+          <%= f.text_field :quantity, value: item.quantity-1, type: :hidden%>
+          <%= f.submit "-", class: "btn btn-xs btn-info quantity-button" %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
   </td>
   <td><%= item.subtotal %></td>
   <td><%= link_to "Remove", cart_path(item.id), method: :delete, class: "btn" %></td>
