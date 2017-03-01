@@ -6,27 +6,24 @@ class Admin::DonationsController < Admin::BaseController
 
   def new
     @donation = Donation.new
-    @categories = Category.all
   end
 
   def create
     @donation = Donation.new(donation_params)
-    @categories = Category.all
     if @donation.save
       redirect_to admin_donation_path(@donation)
     else
+      flash[:danger] = @donation.errors.full_messages.join(". ")
       render :new
     end
   end
 
   def edit
     @donation = Donation.find(params[:id])
-    @categories = Category.all
   end
 
   def show
     @donation = Donation.find(params[:id])
-    @categories = Category.all
   end
 
   def update
@@ -35,6 +32,7 @@ class Admin::DonationsController < Admin::BaseController
     if @donation.save
       redirect_to admin_donation_path(@donation)
     else
+      flash[:danger] = @donation.errors.full_messages.join(". ")
       render :edit
     end
   end

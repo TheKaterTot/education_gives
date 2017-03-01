@@ -3,6 +3,7 @@ class Donation < ApplicationRecord
   has_many :order_details, class_name: "OrderDonation"
   has_many :orders, through: :order_details
   validates :title, :description, :price, presence: true
+  validates :title, uniqueness: true
   has_attached_file :image, styles: { medium: "300x300>", thumb: "50x50>" },
     default_url: "/assets/:style/classroom.jpg"
   validates_attachment_content_type :image,
