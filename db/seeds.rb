@@ -12,7 +12,8 @@ daily.donations.create(
 daily.donations.create(
   title: "Notebooks & Pencils",
   description: "We need notebooks and pencils for our students who are unable to afford them.",
-  price: 50
+  price: 50,
+  active: false
 )
 
 daily.donations.create(
