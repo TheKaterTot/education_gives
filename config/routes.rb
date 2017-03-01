@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/update_account", to: "users#edit"
 
   resources :donations, only: [:index, :show]
-  resources :cart#, only: [:index, :create, :update]
+  resources :cart, except: [:new, :show]
 
   resources :users, only: [:new, :create, :edit, :update]
 
