@@ -9,7 +9,7 @@
   </tr>
 <% @donations.each do |donation| %>
   <tr id=admin-donation-<%= donation.id %>>
-    <td><%= image_tag donation.image.url, class: "icon" %></td>
+    <td><%= image_tag donation.image.url(:medium) %></td>
     <td><%= donation.title %></td>
     <td><%= donation.description %></td>
     <td><%= donation.price %></td>
