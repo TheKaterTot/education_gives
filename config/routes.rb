@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/dashboard", to: "users#show"
-    resources :orders, only: [:update, :destroy]
-    resources :donations, only: [:new, :create, :index, :edit, :update]
+    resources :orders, only: [:update, :destroy, :show]
+    resources :donations, only: [:index, :new, :create, :show, :edit, :update]
   end
 
   get ":slug" => "categories#show", :as => "category"

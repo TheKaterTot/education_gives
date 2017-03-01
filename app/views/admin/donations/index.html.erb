@@ -12,6 +12,7 @@
     <td><%= image_tag donation.image_path, class: "icon" %></td>
     <td><%= donation.title %></td>
     <td><%= donation.description %></td>
+    <td><%= donation.price %></td>
     <td><%= donation.display_active %></td>
     <td><%= link_to "Edit", edit_admin_donation_path(donation), class: "btn btn-xs" %></td>
   </tr>

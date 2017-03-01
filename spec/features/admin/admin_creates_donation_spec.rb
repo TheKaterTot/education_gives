@@ -18,7 +18,7 @@ feature "admin manages donations" do
 
     click_on "Create"
 
-    expect(current_path).to eq(donation_path(Donation.last))
+    expect(current_path).to eq(admin_donation_path(Donation.last))
     expect(page).to have_content("School Lunches")
     expect(page).to have_content("Buy a child's lunch for a year")
     expect(page).to have_content("75")
