@@ -6,43 +6,37 @@ daily = Category.create(name: "daily-necessities")
 daily.donations.create(
   title: "Bike",
   description: "You can give a student transportation to get to school.",
-  price: 50,
-  image_path: "https://robohash.org/hash"
+  price: 50
 )
 
 daily.donations.create(
   title: "Notebooks & Pencils",
   description: "We need notebooks and pencils for our students who are unable to afford them.",
-  price: 50,
-  image_path: "https://robohash.org/hash"
+  price: 50
 )
 
 daily.donations.create(
   title: "School Lunch",
   description: "Buy a month of healthy school lunches for a student.",
-  price: 20,
-  image_path: "https://robohash.org/lunch"
+  price: 20
 )
 
 music.donations.create(
   title: "Violin",
   description: "Our music club needs new violins for the regional competition.",
   price: 100.0,
-  image_path: "https://robohash.org/violin"
 )
 
 science.donations.create(
   title: "Microsope",
   description: "We are expanding our science department to include a unit on microbiology.",
   price: 200.0,
-  image_path: "https://robohash.org/microscope"
 )
 
 library.donations.create(
   title: "Library Books",
   description: "We need to replace old, worn-out books for student free time.",
   price: 50.0,
-  image_path: "https://robohash.org/library"
 )
 
 User.create(
