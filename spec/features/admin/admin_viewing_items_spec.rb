@@ -31,7 +31,6 @@ describe "Admin views links for all items" do
 
     donations.each do |donation|
       within("#admin-donation-#{donation.id}") do
-        expect(page).to have_css("img[src*='#{donation.image.url}']")
         expect(page).to have_content(donation.title)
         expect(page).to have_content(donation.description)
         expect(page).to have_content(donation.display_active)
