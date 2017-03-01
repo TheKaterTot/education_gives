@@ -4,28 +4,35 @@ library = Category.create(name: "library")
 daily = Category.create(name: "daily-necessities")
 
 daily.donations.create(
-  title: "Bike to School",
-  description: "Transportation to get to school",
+  title: "Bike",
+  description: "You can give a student transportation to get to school.",
+  price: 50,
+  image_path: "https://robohash.org/hash"
+)
+
+daily.donations.create(
+  title: "Notebooks & Pencils",
+  description: "We need notebooks and pencils for our students who are unable to afford them.",
   price: 50,
   image_path: "https://robohash.org/hash"
 )
 
 daily.donations.create(
   title: "School Lunch",
-  description: "Monthly fee for school lunch",
+  description: "Buy a month of healthy school lunches for a student.",
   price: 20,
   image_path: "https://robohash.org/lunch"
 )
 
 music.donations.create(
-  title: "New Violin",
+  title: "Violin",
   description: "Our music club needs new violins for the regional competition.",
   price: 100.0,
   image_path: "https://robohash.org/violin"
 )
 
 science.donations.create(
-  title: "New Microsope",
+  title: "Microsope",
   description: "We are expanding our science department to include a unit on microbiology.",
   price: 200.0,
   image_path: "https://robohash.org/microscope"
