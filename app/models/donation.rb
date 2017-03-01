@@ -25,7 +25,7 @@ class Donation < ApplicationRecord
       "Retired"
     end
   end
-  
+
   def display_price
     number_to_currency(price)
   end

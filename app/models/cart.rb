@@ -1,4 +1,6 @@
 class Cart
+  include ActionView::Helpers::NumberHelper
+
   attr_reader :contents
 
   def initialize(initial_contents = {})
@@ -42,16 +44,15 @@ class Cart
     end
   end
 
+  def display_total
+    number_to_currency(total)
+  end
+
   def purchase(user)
     Order.transaction do
       order = Order.create!(user: user)
-      contents.each do |donation_id, quantity|
-        OrderDonation.create!(
-          order_id: order.id,
-          donation_id: donation_id,
-          quantity: quantity,
-          subtotal: Donation.find(donation_id).price * quantity
-        )
+      cart_items.each do |cart_item|
+        OrderDonation.create!(cart_item.data(order.id))
       end
     end
     true
