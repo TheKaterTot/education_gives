@@ -5,8 +5,9 @@
       <h3 class="card-title"><%= link_to donation.title, donation_path(donation) %></h3>
       <p class="card-text"><%= donation.display_price %></p>
       <% if donation.active %>
-        <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id),
-          class: "btn btn-primary" %>
+        <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id), class: "btn btn-primary" %>
+      <% else %>
+        <p class="btn btn-outline-primary">Donation Retired</p>
       <% end %>
     </div>
   </div>
