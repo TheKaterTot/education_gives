@@ -1,7 +1,5 @@
 <h1>Admin Dashboard</h1>
-
-<h2>All Orders</h2>
-
+<br>
 <h2>Order Subtotals</h2>
 <table id=subtotals class=button-table>
   <tr>
@@ -34,8 +32,9 @@
   <% @orders.each do |order| %>
     <tr id=order-<%= order.id %>>
       <td id=id-<%= order.id %>><%= order.id %></td>
+      <td><%= order.display_create_date %></td>
+      <td class=currency><%= order.display_total %></td>
       <td><%= order.display_status %></td>
-      <td><%= link_to "View Order", order_path(order) %></td>
       <td>
         <% if order.active? %>
           <%= form_for order, url: admin_order_path(order), method: :put do |f| %>
@@ -44,9 +43,6 @@
           <% end %>
         <% end %>
       </td>
-      <td><%= order.display_create_date %></td>
-      <td><%= order.display_total %></td>
-      <td><%= order.display_status %></td>
       <td><%= link_to "View Order", order_path(order) %></td>
     </tr>
   <% end %>

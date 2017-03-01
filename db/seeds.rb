@@ -1,38 +1,54 @@
-Donation.destroy_all
-Category.destroy_all
-
 music = Category.create(name: "music")
 science = Category.create(name: "science")
 library = Category.create(name: "library")
+daily = Category.create(name: "daily-necessities")
 
-science.donations.create(title: "Bike to School",
-                         description: "Transportation to get to school",
-                         price: 50,
-                         image_path: "https://robohash.org/hash")
+daily.donations.create(
+  title: "Bike",
+  description: "You can give a student transportation to get to school.",
+  price: 50
+)
 
-music.donations.create(title: "School Lunch",
-                       description: "Monthly fee for school lunch",
-                       price: 20,
-                       image_path: "https://robohash.org/lunch")
+daily.donations.create(
+  title: "Notebooks & Pencils",
+  description: "We need notebooks and pencils for our students who are unable to afford them.",
+  price: 50,
+  active: false
+)
 
-library.donations.create(title: "New Violin",
-                         description: "Our music club needs new violins for the regional competition.",
-                         price: 100.0,
-                         image_path: "https://robohash.org/violin")
+daily.donations.create(
+  title: "School Lunch",
+  description: "Buy a month of healthy school lunches for a student.",
+  price: 20
+)
 
-science.donations.create(title: "New Microsope",
-                         description: "We are expanding our science department to include a unit on microbiology.",
-                         price: 200.0,
-                         image_path: "https://robohash.org/microscope")
+music.donations.create(
+  title: "Violin",
+  description: "Our music club needs new violins for the regional competition.",
+  price: 100.0,
+)
 
-library.donations.create(title: "Library Books",
-                         description: "We need to replace old, worn-out books for student free time.",
-                         price: 50.0,
-                         image_path: "https://robohash.org/library")
+science.donations.create(
+  title: "Microsope",
+  description: "We are expanding our science department to include a unit on microbiology.",
+  price: 200.0,
+)
 
-User.create(first_name: "Maria", last_name: "Smith", role: 1, username: "admin", password: "password")
+library.donations.create(
+  title: "Library Books",
+  description: "We need to replace old, worn-out books for student free time.",
+  price: 50.0,
+)
 
-10.times do
+User.create(
+  first_name: "Mario",
+  last_name: "Smith",
+  email: "mario.smith@example.com",
+  role: 1, username: "user",
+  password: "password"
+)
+
+9.times do
   f = Faker::Name.first_name
   l = Faker::Name.last_name
   u = "#{f.downcase}-#{l.downcase}"
@@ -54,3 +70,11 @@ end
     )
   end
 end
+
+User.create(
+  first_name: "Maria",
+  last_name: "Smith",
+  email: "maria.smith@eg.org",
+  role: 1, username: "admin",
+  password: "password"
+)

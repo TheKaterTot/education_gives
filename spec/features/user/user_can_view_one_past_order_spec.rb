@@ -19,17 +19,20 @@ RSpec.describe "User can view one past order" do
     expect(current_path).to eq(order_path(order_completed))
     within("#order-info") do
       expect(page).to have_content("Completed")
-      expect(page).to have_content(order_completed.total)
       expect(page).to have_content(order_completed.display_create_date)
       expect(page).to have_content(order_completed.display_update_date)
+    end
+    within("#total") do
+      expect(page).to have_content(order_completed.display_total)
     end
 
     visit order_path(order_paid)
     within("#order-info") do
       expect(page).to have_content("Paid")
-      expect(page).to have_content(order_completed.total)
-      expect(page).to have_content(order_completed.display_create_date)
-      expect(page).to have_content(order_completed.display_update_date)
+      expect(page).to have_content(order_paid.display_create_date)
+    end
+    within("#total") do
+      expect(page).to have_content(order_paid.display_total)
     end
     within("#donation-#{donations[0].id}") do
       expect(page).to have_link(donations[0].title, href: donation_path(donations[0]))

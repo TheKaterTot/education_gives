@@ -4,15 +4,16 @@
   <tr>
     <th colspan="2">Donation</th>
     <th>Description</th>
-    <th>Active or Retired donation</th>
+    <th>Price</th>
+    <th>Active or Retired</th>
     <th></th>
   </tr>
 <% @donations.each do |donation| %>
   <tr id=admin-donation-<%= donation.id %>>
-    <td><%= image_tag donation.image.url(:medium) %></td>
+    <td><%= image_tag donation.image.url(:thumb) %></td>
     <td><%= donation.title %></td>
     <td><%= donation.description %></td>
-    <td><%= donation.price %></td>
+    <td class=currency><%= donation.display_price %></td>
     <td><%= donation.display_active %></td>
     <td><%= link_to "Edit", edit_admin_donation_path(donation), class: "btn btn-xs btn-default"%></td>
   </tr>

@@ -13,7 +13,6 @@ class OrdersController < ApplicationController
     order = Order.find(params[:id])
     if order && order.user == current_user
       @order = order
-      # redirect_to order_path(@order)
     else
       render :file => 'public/404.html', :status => :not_found, :layout => false
     end

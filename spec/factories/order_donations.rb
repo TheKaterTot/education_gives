@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :order_donation do
     order
     donation
-    quantity { rand(1..10) }
+    quantity { 2 }
+    subtotal { 1000 }
   end
 end
