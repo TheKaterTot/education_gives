@@ -2,17 +2,22 @@
 <br>
 <table id=order-info class=index-table>
   <tr>
-  <th>Total</th>
-  <th>Current Status</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Current Status</th>
     <th>Start Date</th>
     <th>End Date</th>
   </tr>
   <tr>
-    <td><%= @order.total %></td>
+    <td><%= @order.user.first_name %></td>
+    <td><%= @order.user.last_name %></td>
+    <td><%= @order.user.email %></td>
     <td><%= @order.display_status %></td>
     <td><%= @order.display_create_date %></td>
-    <td><%= @order.display_update_date  %></td>
     <% if @order.active? %>
+      <td></td>
+    <% else %>
       <td><%= @order.display_update_date %></td>
     <% end %>
   </tr>
@@ -28,7 +33,12 @@
     <tr id=donation-<%= order_donation.donation.id %>>
       <td><%= link_to order_donation.donation.title, donation_path(order_donation.donation) %></td>
       <td><%= order_donation.quantity %></td>
-      <td><%= order_donation.display_subtotal %></td>
+      <td class=currency><%= order_donation.display_subtotal %></td>
     </tr>
   <% end %>
+  <tr>
+    <th></th>
+    <th>TOTAL</th>
+    <th class=currency><%= @order.display_total %></th>
+  </tr>
 </table>

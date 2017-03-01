@@ -1,15 +1,17 @@
 class Order < ApplicationRecord
+  include ActionView::Helpers::NumberHelper
+
   validates :status, presence: true
   belongs_to :user
   has_many :details, class_name: "OrderDonation"
   has_many :donations, through: :details
 
   def display_create_date
-    created_at.strftime("%m-%d-%Y")
+    created_at.strftime("%m-%d-%Y %M:%S")
   end
 
   def display_update_date
-    updated_at.strftime("%m-%d-%Y")
+    updated_at.strftime("%m-%d-%Y %M:%S")
   end
 
   def total
@@ -17,7 +19,7 @@ class Order < ApplicationRecord
   end
 
   def display_total
-    total
+    number_to_currency(total)
   end
 
   def display_status

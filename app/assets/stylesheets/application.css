@@ -127,6 +127,10 @@
   width: 22px;
 }
 
+.currency {
+  text-align: right;
+}
+
 .btn-outline-primary {
   color: #2e6da4;
   background-color: white;
@@ -138,4 +142,3 @@
   background-color: white;
   border-color: #adadad;
 }
-

@@ -46,9 +46,12 @@ class Cart
     Order.transaction do
       order = Order.create!(user: user)
       contents.each do |donation_id, quantity|
-        OrderDonation.create!(order_id: order.id,
-                             donation_id: donation_id,
-                             quantity: quantity)
+        OrderDonation.create!(
+          order_id: order.id,
+          donation_id: donation_id,
+          quantity: quantity,
+          subtotal: Donation.find(donation_id).price * quantity
+        )
       end
     end
     true

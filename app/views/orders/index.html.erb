@@ -4,8 +4,8 @@
   <tr>
     <th>Order Number</th>
     <th>Order Date</th>
-    <th>Order Total</th>
     <th>Order Status</th>
+    <th>Order Total</th>
     <th>View Details</th>
   </tr>
   <% @orders.each do |order| %>
@@ -13,7 +13,7 @@
       <td id=id-<%= order.id %>><%= order.id %></td>
       <td><%= order.display_create_date %></td>
       <td><%= order.display_status %></td>
-      <td><%= order.total %></td>
+      <td class=currency><%= order.display_total %></td>
       <td><%= link_to "View Details", order_path(order) %></td>
     </tr>
   <% end %>
