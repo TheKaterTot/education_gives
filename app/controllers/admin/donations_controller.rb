@@ -13,6 +13,7 @@ class Admin::DonationsController < Admin::BaseController
     if @donation.save
       redirect_to admin_donation_path(@donation)
     else
+      flash[:danger] = @donation.errors.full_messages.join(". ")
       render :new
     end
   end
@@ -31,6 +32,7 @@ class Admin::DonationsController < Admin::BaseController
     if @donation.save
       redirect_to admin_donation_path(@donation)
     else
+      flash[:danger] = @donation.errors.full_messages.join(". ")
       render :edit
     end
   end

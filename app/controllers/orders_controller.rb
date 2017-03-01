@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 
   def show
     order = Order.find(params[:id])
-    if order && order.user == current_user
+    if order && (order.user == current_user || current_admin?)
       @order = order
     else
       render :file => 'public/404.html', :status => :not_found, :layout => false
