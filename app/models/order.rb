@@ -48,7 +48,7 @@ class Order < ApplicationRecord
   end
 
   def self.valid_statuses
-    %w(ordered paid cancelled completed)
+    %w(ordered paid completed cancelled)
   end
 
   def self.count_by_status(status)
