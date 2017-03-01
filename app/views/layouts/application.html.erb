@@ -68,7 +68,7 @@
     <% flash.each do |type, message| %>
       <%= content_tag :div, message.html_safe, class: "alert alert-#{type}" %>
     <% end %>
-    <div class="container-fluid col-lg-8 col-lg-offset-2">
+    <div class="container-fluid">
       <%= yield %>
     </div>
   </body>
