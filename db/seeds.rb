@@ -1,22 +1,23 @@
 music = Category.create(name: "music")
 science = Category.create(name: "science")
 library = Category.create(name: "library")
+daily = Category.create(name: "daily-necessities")
 
-science.donations.create(
+daily.donations.create(
   title: "Bike to School",
   description: "Transportation to get to school",
   price: 50,
   image_path: "https://robohash.org/hash"
 )
 
-music.donations.create(
+daily.donations.create(
   title: "School Lunch",
   description: "Monthly fee for school lunch",
   price: 20,
   image_path: "https://robohash.org/lunch"
 )
 
-library.donations.create(
+music.donations.create(
   title: "New Violin",
   description: "Our music club needs new violins for the regional competition.",
   price: 100.0,
@@ -45,7 +46,7 @@ User.create(
   password: "password"
 )
 
-10.times do
+9.times do
   f = Faker::Name.first_name
   l = Faker::Name.last_name
   u = "#{f.downcase}-#{l.downcase}"
@@ -53,7 +54,7 @@ User.create(
   User.create(first_name: f, last_name: l, email: e, username: u, password: "a")
 end
 
-33.times do
+30.times do
   u = User.pluck(:id).sample
   s = [:ordered, :paid, :completed, :cancelled].sample
   o = Order.create(user_id: u, status: s)
