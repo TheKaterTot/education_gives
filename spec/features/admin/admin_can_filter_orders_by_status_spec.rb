@@ -8,7 +8,8 @@ RSpec.describe "Admin can filter orders by status" do
 
   scenario "by 'Ordered'" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(admin)
     visit admin_dashboard_path
     click_on "Ordered"
 
@@ -20,7 +21,9 @@ RSpec.describe "Admin can filter orders by status" do
 
   scenario "by 'Paid'" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(admin)
+    
     visit admin_dashboard_path
     click_on "Paid"
 
@@ -32,7 +35,9 @@ RSpec.describe "Admin can filter orders by status" do
 
   scenario "by 'Completed'" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(admin)
+
     visit admin_dashboard_path
     click_on "Completed"
 
@@ -44,7 +49,9 @@ RSpec.describe "Admin can filter orders by status" do
 
   scenario "by 'Cancelled'" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(admin)
+
     visit admin_dashboard_path
     click_on "Cancelled"
 

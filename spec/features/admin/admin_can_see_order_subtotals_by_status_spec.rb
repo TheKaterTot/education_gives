@@ -4,7 +4,8 @@ RSpec.describe "Admin can see order subtotals by status" do
   scenario "admin can see order subtotals by status" do
 
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(admin)
 
     ordered = create(:order, status: "ordered")
     paid = create_list(:order, 2, status: "paid")

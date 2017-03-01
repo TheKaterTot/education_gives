@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "User sees order details" do
   scenario "user can see order details" do
-    user = create(:user, first_name: "Maria", last_name: "Smith", email: "maria@aol.fr")
+    user = create(:user)
     order = create(:order, user_id: user.id)
     donation = create(:donation)
     order_donation = create(:order_donation, order_id: order.id, donation_id: donation.id)

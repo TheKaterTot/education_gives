@@ -6,7 +6,8 @@ feature "User can view a past order" do
     orders = create_list(:order_with_donations, 2, user: user)
     other_user = create(:user)
     other_orders = create_list(:order_with_donations, 2, user: other_user)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(user)
 
     visit orders_path
 

@@ -25,7 +25,5 @@ RSpec.describe "Admin cannot modify users" do
 
     expect(current_path).to eq dashboard_path
     expect(page).to have_content("Welcome, Samantha!")
-
-    #verify admin cannot modify other user profile
   end
 end

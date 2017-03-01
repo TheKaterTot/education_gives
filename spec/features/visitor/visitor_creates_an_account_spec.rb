@@ -26,7 +26,6 @@ RSpec.feature "A visitor can create an account" do
     expect(current_path).to eq("/dashboard")
 
     expect(page).to have_content("Logged in as Jane.")
-    # expect(page).to have_content("My Profile")
     expect(page).to_not have_content("Login")
     expect(page).to have_content("Logout")
 

@@ -18,7 +18,7 @@ RSpec.feature "When a user adds donations to their cart", type: :feature do
     click_button "Add to Cart"
 
     expect(page).to have_content("You now have 1 #{@donation.title}.")
-    click_on "#{@donation.title}" #we could also put a Add to Cart in index page
+    click_on "#{@donation.title}" 
 
     expect(current_path).to eq donation_path(@donation)
     click_button "Add to Cart"

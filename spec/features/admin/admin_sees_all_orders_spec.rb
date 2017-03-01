@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe "Admin sees all orders" do
   scenario "admin can see all orders" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(admin)
 
     ordered = create(:order, status: "ordered")
     paid = create(:order, status: "paid")

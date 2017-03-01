@@ -4,7 +4,7 @@ RSpec.describe "Admin edits a donation" do
   scenario "admin can edit a donation" do
 
     admin = create(:user, role: 1)
-    create(:category, name: "Food")
+    create(:category)
     donation = create(:donation)
 
     allow_any_instance_of(ApplicationController)
@@ -13,7 +13,6 @@ RSpec.describe "Admin edits a donation" do
     visit admin_donation_path(donation)
     click_on "Edit Donation"
 
-    # page(current_path).to eq edit_admin_donation_path(donation)
     fill_in "donation[price]", with: "65"
     click_on "Update Donation"
 

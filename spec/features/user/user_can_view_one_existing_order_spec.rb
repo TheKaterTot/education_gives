@@ -7,7 +7,8 @@ RSpec.describe "User can view one order" do
     order_completed = create(:order_with_donations, user: user, status: "completed")
     donations = order_paid.donations
     order_details = order_paid.details
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController)
+    .to receive(:current_user).and_return(user)
 
     visit orders_path
 
