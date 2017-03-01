@@ -1,7 +1,20 @@
-<h1>All Donations(admin view)</h1>
+<h1>All Donations</h1>
 
+<table>
+  <tr>
+    <th colspan="2">Donation</th>
+    <th>Description</th>
+    <th>Active Donation?</th>
+    <th></th>
+  </tr>
 <% @donations.each do |donation| %>
-<%= donation.title %>
-<%= donation.description %>
-<%= donation.price %>
+  <tr id=admin-donation-<%= donation.id %>>
+    <td><%= image_tag donation.image_path, class: "icon" %></td>
+    <td><%= donation.title %></td>
+    <td><%= donation.description %></td>
+    <td><%= donation.price %></td>
+    <td><%= donation.display_active %></td>
+    <td><%= link_to "Edit", edit_admin_donation_path(donation), class: "btn btn-xs" %></td>
+  </tr>
 <% end %>
+</table>
