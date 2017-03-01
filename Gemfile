@@ -56,6 +56,7 @@ gem 'rails_12factor', group: :production
 
 group :production do
   gem 'aws-sdk', '~> 2.3'
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
