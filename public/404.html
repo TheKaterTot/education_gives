@@ -52,7 +52,16 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 
-  #404_image {
+  #image404 {
+    position:absolute;
+    z-index:0;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+  }
+
+  #image404 img {
     height: 100%;
     width: 100%;
   }
@@ -61,8 +70,8 @@
 </head>
 
 <body>
-  <div class="container" id="404_image">
-    <img src="images/404_generosity.jpg" alt="404 page with kids in the background">
+  <div class="container" id="image404">
+    <a href="/"><img src="/images/404_generosity.jpg" alt="404 page with kids in the background"></a>
   </div>
   <div class="dialog">
     <div>

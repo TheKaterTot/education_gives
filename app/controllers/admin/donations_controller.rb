@@ -6,12 +6,10 @@ class Admin::DonationsController < Admin::BaseController
 
   def new
     @donation = Donation.new
-    @categories = Category.all
   end
 
   def create
     @donation = Donation.new(donation_params)
-    @categories = Category.all
     if @donation.save
       redirect_to admin_donation_path(@donation)
     else
@@ -21,12 +19,10 @@ class Admin::DonationsController < Admin::BaseController
 
   def edit
     @donation = Donation.find(params[:id])
-    @categories = Category.all
   end
 
   def show
     @donation = Donation.find(params[:id])
-    @categories = Category.all
   end
 
   def update

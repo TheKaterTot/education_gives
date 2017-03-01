@@ -13,7 +13,7 @@
 <% @donations.each do |donation| %>
   <tr id=admin-donation-<%= donation.id %>>
     <td><%= image_tag donation.image.url(:thumb) %></td>
-    <td><%= donation.title %></td>
+    <td><%= link_to donation.title, admin_donation_path(donation) %></td>
     <td><%= donation.description %></td>
     <td class=currency><%= donation.display_price %></td>
     <td><%= donation.display_active %></td>

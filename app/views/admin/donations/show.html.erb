@@ -1,4 +1,3 @@
-<%= @donation.title %>
-<%= @donation.description %>
-<%= @donation.price %>
-<%= link_to "Edit Donation", edit_admin_donation_path(@donation) %>
+<%= render partial: 'shared/donation' %>
+<br>
+<%= link_to "Edit Donation", edit_admin_donation_path(@donation), class: "btn btn-primary" %>

@@ -1,16 +1,32 @@
 <h1>Edit Donation</h1>
-
+<br>
 <%= form_for @donation, url: admin_donation_path(@donation) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-  <%= f.label :category %>
-  <%= f.collection_select(:category_id, @categories, :id, :name, {:prompt => true} ) %>
-  <%= f.label :image %>
-  <%= f.file_field :image %>
-
-  <%= f.submit %>
+  <table class=form-table>
+    <tr>
+      <th><%= f.label :title %></th>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :description %></th>
+      <td><%= f.text_area :description %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :price %></th>
+      <td><%= f.text_field :price %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :category %></th>
+      <td><%= f.collection_select(:category_id, @categories, :id, :display_name, {:prompt => true} ) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :image %></th>
+      <td><%= f.file_field :image %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :active %></th>
+      <td><%= f.select :active, [true, false] %></td>
+    </tr>
+  </table>
+  <br>
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
