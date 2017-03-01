@@ -1,7 +1,5 @@
 <h1>Admin Dashboard</h1>
 
-<%= link_to "View all Donations", admin_donations_path %>
-
 <h2>All Orders</h2>
 
 <h2>Order Subtotals</h2>
@@ -42,7 +40,7 @@
         <% if order.active? %>
           <%= form_for order, url: admin_order_path(order), method: :put do |f| %>
             <%= f.submit "Mark as #{order.next_status}", class: "btn btn-xs btn-default" %>
-            <%= button_to "Mark as cancelled", admin_order_path(order), method: :delete  %>
+            <%= button_to "Mark as cancelled", admin_order_path(order), method: :delete, class: "btn btn-xs btn-default" %>
           <% end %>
         <% end %>
       </td>
