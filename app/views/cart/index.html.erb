@@ -14,7 +14,7 @@
   </tr>
   <% @cart.cart_items.each do |item| %>
   <tr id=donation-<%= item.id %>>
-    <td><%= image_tag item.image_url(:thumb) %></td>
+    <td><%= image_tag item.image_url %></td>
     <td><%= item.title %></td>
     <td><%= item.price %></td>
     <td>

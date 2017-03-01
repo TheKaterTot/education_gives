@@ -19,7 +19,4 @@ RSpec.describe "User can adjust donation quantity in cart" do
 
   end
 
-  xscenario "User adjusts multiple donations in the cart" do
-    #build this test later to verify total is updated as well
-  end
 end

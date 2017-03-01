@@ -33,17 +33,17 @@ RSpec.describe "User can view one past order" do
     within("#donation-#{donations[0].id}") do
       expect(page).to have_link(donations[0].title, href: donation_path(donations[0]))
       expect(page).to have_content(order_details[0].quantity)
-      expect(page).to have_content(order_details[0].subtotal)
+      expect(page).to have_content(order_details[0].display_subtotal)
     end
     within("#donation-#{donations[1].id}") do
       expect(page).to have_link(donations[1].title, href: donation_path(donations[1]))
       expect(page).to have_content(order_details[1].quantity)
-      expect(page).to have_content(order_details[1].subtotal)
+      expect(page).to have_content(order_details[1].display_subtotal)
     end
     within("#donation-#{donations[2].id}") do
       expect(page).to have_link(donations[2].title, href: donation_path(donations[2]))
       expect(page).to have_content(order_details[2].quantity)
-      expect(page).to have_content(order_details[2].subtotal)
+      expect(page).to have_content(order_details[2].display_subtotal)
     end
   end
 end
