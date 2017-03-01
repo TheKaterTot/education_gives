@@ -7,10 +7,10 @@ RSpec.describe "Admin can see order subtotals by status" do
     allow_any_instance_of(ApplicationController)
     .to receive(:current_user).and_return(admin)
 
-    ordered = create(:order, status: "ordered")
-    paid = create_list(:order, 2, status: "paid")
-    cancelled = create_list(:order, 3, status: "cancelled")
-    completed = create_list(:order, 4, status: "completed")
+    create(:order, status: "ordered")
+    create_list(:order, 2, status: "paid")
+    create_list(:order, 3, status: "cancelled")
+    create_list(:order, 4, status: "completed")
 
     visit admin_dashboard_path
 

@@ -1,10 +1,11 @@
-<h1>Order Number: <%= @order.id %></h1>
-<table id=order-info>
+<h2>Order Number: <%= @order.id %></h2>
+<br>
+<table id=order-info class=index-table>
   <tr>
-    <td>Total</td>
-    <td>Current Status</td>
-    <td>Start Date</td>
-    <td>End Date</td>
+  <th>Total</th>
+  <th>Current Status</th>
+    <th>Start Date</th>
+    <th>End Date</th>
   </tr>
   <tr>
     <td><%= @order.total %></td>
@@ -16,20 +17,18 @@
     <% end %>
   </tr>
 </table>
-<table>
-<tr>
-  <th>Info</th>
-  <th>Quantity</th>
-  <th>Subtotal</th>
-  <th></th>
-</tr>
-<% @order.details.each do |order_donation| %>
-<tr id=donation-<%= order_donation.donation.id %>>
-  <td><%= link_to order_donation.donation.title, donation_path(order_donation.donation) %></td>
-  <td><%= order_donation.quantity %></td>
-  <td><%= order_donation.subtotal %></td>
-</tr>
-<% end %>
+<br><br>
+<table class=index-table>
+  <tr>
+    <th>Info</th>
+    <th>Quantity</th>
+    <th>Subtotal</th>
+  </tr>
+  <% @order.details.each do |order_donation| %>
+    <tr id=donation-<%= order_donation.donation.id %>>
+      <td><%= link_to order_donation.donation.title, donation_path(order_donation.donation) %></td>
+      <td><%= order_donation.quantity %></td>
+      <td><%= order_donation.display_subtotal %></td>
+    </tr>
+  <% end %>
 </table>
-
-<%= link_to "Return to All Orders", orders_path, class: "btn" %>

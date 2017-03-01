@@ -8,7 +8,7 @@ describe "User can update their information" do
 
     fill_in "Username", with: "jane"
     fill_in "Password", with: "password"
-    click_on "Login"
+    click_on "Sign in"
 
     expect(page).to have_content("Welcome, Jane!")
 

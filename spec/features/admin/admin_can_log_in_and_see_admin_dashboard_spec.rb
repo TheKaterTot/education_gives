@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-feature "Admin logs in and see admin dashboard" do
+feature "Admin can log in and see admin dashboard" do
   scenario "Admin gets redirected to dashboard" do
     admin = create(:user, role: 1)
 
     visit login_path
 
-    fill_in "Username", with: admin.username
-    fill_in "Password", with: admin.password
-    click_on "Login"
+    fill_in "session[username]", with: admin.username
+    fill_in "session[password]", with: admin.password
+    click_on "Sign in"
 
     expect(current_path).to eq(admin_dashboard_path)
     expect(page).to have_content("Admin Dashboard")

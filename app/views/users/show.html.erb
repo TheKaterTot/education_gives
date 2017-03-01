@@ -1,8 +1,23 @@
-<h1>Welcome, <%= @user.first_name %>!</h1>
+<h2>Welcome, <%= @user.first_name %>!</h2>
+<br>
 
-<p>First name: <%= @user.first_name %><p>
-<p>Last name: <%= @user.last_name %><p>
-<p>Username: <%= @user.username %></p>
-<p>Registered email: <%= @user.email %></p>
-
-<%= link_to "Update Account", update_account_path %>
+<table class=form-table>
+  <tr>
+    <th>First Name:</th>
+    <td><%= @user.first_name %></td>
+  </tr>
+  <tr>
+    <th>Last Name:</th>
+    <td><%= @user.last_name %></td>
+  </tr>
+  <tr>
+    <th>Username:</th>
+    <td><%= @user.username %></td>
+  </tr>
+  <tr>
+    <th>Email:</th>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+<br>
+<%= link_to "Update Account", edit_user_path(@user), class: "btn btn-primary" %>

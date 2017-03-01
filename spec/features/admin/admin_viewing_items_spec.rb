@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe "Admin views links for all items" do
   scenario "Admin sees links to Donations at Admin Dashboard" do
-    admin = create(:user, username: "admin", password: "password", role: 1)
+    create(:user, username: "admin", password: "password", role: 1)
 
     visit login_path
 
     fill_in "Username", with: "admin"
     fill_in "Password", with: "password"
-    click_on "Login"
+    click_on "Sign in"
 
     expect(page).to have_content("Admin Dashboard")
     expect(page).to have_link("View all Donations")

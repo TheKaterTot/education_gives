@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user visits retired item" do
+feature "User can view retired item" do
   scenario "they visit the item show page" do
     donation = create(:donation, active: false)
 
