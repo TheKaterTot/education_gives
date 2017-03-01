@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap/bootstrap.min.js
+
+$(document).ready(function(){
+     $('.dropdown-toggle').dropdown();
+ });

@@ -3,6 +3,7 @@ class DonationsController < ApplicationController
 
   def index
     @donations = Donation.all
+    @donations2 = Donation.all.each_slice(4).to_a
   end
 
   def show

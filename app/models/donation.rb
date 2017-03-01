@@ -8,6 +8,8 @@ class Donation < ApplicationRecord
   validates_attachment_content_type :image,
     :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
+  include ActionView::Helpers::NumberHelper
+
   def subtotal(quantity)
     price * quantity
   end
@@ -22,5 +24,9 @@ class Donation < ApplicationRecord
     else
       "Retired"
     end
+  end
+  
+  def display_price
+    number_to_currency(price)
   end
 end

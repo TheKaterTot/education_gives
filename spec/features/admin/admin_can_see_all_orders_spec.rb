@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Admin sees all orders" do
+RSpec.describe "Admin can see all orders" do
   scenario "admin can see all orders" do
     admin = create(:user, role: 1)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
@@ -12,7 +12,7 @@ RSpec.describe "Admin sees all orders" do
 
     visit admin_dashboard_path
 
-    expect(page).to have_content("All Orders")
+    expect(page).to have_content("Order List")
 
     within("#order-#{ordered.id}") do
       expect(find("#id-#{ordered.id}")).to have_content(ordered.id)
