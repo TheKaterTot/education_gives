@@ -8,27 +8,27 @@ library = Category.create(name: "library")
 science.donations.create(title: "Bike to School",
                          description: "Transportation to get to school",
                          price: 50,
-                         image_path: "https://robohash.org/hash")
+                         image_path: "http://images.travelpod.com/tw_slides/ta00/9b2/410/the-mexican-bike-team-saltillo.jpg")
 
 music.donations.create(title: "School Lunch",
                        description: "Monthly fee for school lunch",
                        price: 20,
-                       image_path: "https://robohash.org/lunch")
+                       image_path: "https://fabretto.org/img/images/LUNCHTIME%202.JPG")
 
 library.donations.create(title: "New Violin",
                          description: "Our music club needs new violins for the regional competition.",
                          price: 100.0,
-                         image_path: "https://robohash.org/violin")
+                         image_path: "http://www.yoa.org/wp-content/uploads/2015/05/Bermudez-Cisne-Zuriel.jpg")
 
 science.donations.create(title: "New Microsope",
                          description: "We are expanding our science department to include a unit on microbiology.",
                          price: 200.0,
-                         image_path: "https://robohash.org/microscope")
+                         image_path: "https://lh5.googleusercontent.com/-kMSTOsCekUA/Uafgl_Meo3I/AAAAAAAADoc/XeGK1deWflE/s640/20130530_150034.jpg")
 
 library.donations.create(title: "Library Books",
                          description: "We need to replace old, worn-out books for student free time.",
                          price: 50.0,
-                         image_path: "https://robohash.org/library")
+                         image_path: "http://www.unesco.org/uil/litbase/media/bibu05.jpg")
 
 User.create(first_name: "Maria", last_name: "Smith", role: 1, username: "admin", password: "password")
 
