@@ -11,9 +11,9 @@ describe "Admin views links for all items" do
     click_on "Sign in"
 
     expect(page).to have_content("Admin Dashboard")
-    expect(page).to have_link("View all Donations")
+    expect(page).to have_link("Donations")
 
-    click_on "View all Donations"
+    click_on "Donations"
 
     expect(current_path).to eq(admin_donations_path)
   end

@@ -19,14 +19,14 @@ feature "User can view all past orders" do
     within("#order-#{orders[0].id}") do
       expect(page).to have_content(orders[0].id)
       expect(page).to have_content(orders[0].display_create_date)
-      expect(page).to have_content(orders[0].total)
+      expect(page).to have_content(orders[0].display_total)
       expect(page).to have_content(orders[0].display_status)
       expect(page).to have_link("View Details", href: order_path(orders[0]))
     end
     within("#order-#{orders[1].id}") do
       expect(page).to have_content(orders[1].id)
       expect(page).to have_content(orders[1].display_create_date)
-      expect(page).to have_content(orders[1].total)
+      expect(page).to have_content(orders[1].display_total)
       expect(page).to have_content(orders[1].display_status)
       expect(page).to have_link("View Details", href: order_path(orders[1]))
     end

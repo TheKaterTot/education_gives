@@ -52,8 +52,6 @@ group :development do
   gem 'listen', '~> 3.0.5'
 end
 
-gem 'rails_12factor', group: :production
-
 group :production do
   gem 'aws-sdk', '~> 2.3'
   gem 'rails_12factor'
