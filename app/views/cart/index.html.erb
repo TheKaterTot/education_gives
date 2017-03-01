@@ -29,7 +29,7 @@
             </td>
             <td rowspan="2">
               <%= form_for :cart, url: cart_path(item.id), method: :put do |f| %>
-              <%= f.number_field :quantity, value: item.quantity, min: 1, id: "quantity-#{item.id}", class: "quantity-field" %>
+              <%= f.text_field :quantity, value: item.quantity, id: "quantity-#{item.id}", class: "quantity-field" %>
               <%= f.submit "Update", class: "btn btn-xs btn-warning" %>
               <% end %>
             </td>
