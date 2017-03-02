@@ -32,4 +32,3 @@ class CartController < ApplicationController
     redirect_to cart_index_path
   end
 end
-#hound

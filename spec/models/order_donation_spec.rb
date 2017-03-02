@@ -10,4 +10,4 @@ RSpec.describe OrderDonation, type: :model do
     expect(order_donation.subtotal).to eq(order_donation.quantity * order_donation.donation.price)
   end
 end
-#hound
+

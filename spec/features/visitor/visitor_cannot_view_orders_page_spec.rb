@@ -10,4 +10,4 @@ feature "Visitor cannot view the order page" do
     expect(page).to have_content("The page you were looking for doesn't exist")
   end
 end
-#hound
+

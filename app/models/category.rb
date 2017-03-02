@@ -5,4 +5,3 @@ class Category < ApplicationRecord
     name.split("-").map { |word| word.capitalize }.join(" ")
   end
 end
-#hound

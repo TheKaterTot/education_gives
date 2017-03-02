@@ -31,4 +31,3 @@ class Donation < ApplicationRecord
     number_to_currency(price)
   end
 end
-#hound

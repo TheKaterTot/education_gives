@@ -42,4 +42,4 @@ RSpec.describe Donation, type: :model do
     expect(donation.active).to eq(true)
   end
 end
-#hound
+

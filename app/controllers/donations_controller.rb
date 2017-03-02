@@ -9,4 +9,3 @@ class DonationsController < ApplicationController
     @donation = Donation.find(params[:id])
   end
 end
-#hound

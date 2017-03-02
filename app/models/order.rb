@@ -61,4 +61,3 @@ class Order < ApplicationRecord
     end.merge!({"all" => Order.count})
   end
 end
-#hound

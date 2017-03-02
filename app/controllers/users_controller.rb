@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if current_user
       @user = current_user
     else
-      render file: 'public/404.html', status: :not_found, layout: false
+      render :file => 'public/404.html', :status => :not_found, :layout => false
     end
   end
 
@@ -42,4 +42,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :username, :password)
   end
 end
-#hound

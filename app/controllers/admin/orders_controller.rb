@@ -19,4 +19,3 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_dashboard_path
   end
 end
-#hound

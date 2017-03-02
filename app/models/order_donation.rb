@@ -8,4 +8,3 @@ class OrderDonation < ApplicationRecord
     number_to_currency(subtotal)
   end
 end
-#hound
