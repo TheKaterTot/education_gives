@@ -2,7 +2,7 @@ class DonationsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @donations = Donation.where(active: true)
+    @donations = Donation.all
   end
 
   def show
