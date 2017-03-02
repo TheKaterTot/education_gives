@@ -7,7 +7,7 @@
       <% if donation.active %>
         <%= button_to "Add to Cart", cart_index_path(donation_id: donation.id), class: "btn btn-primary" %>
       <% else %>
-        <p class="btn btn-outline-primary">Donation Retired</p>
+        <button class="btn btn-outline-primary">Donation Retired</button>
       <% end %>
     </div>
   </div>
