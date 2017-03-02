@@ -3,8 +3,7 @@ require "rails_helper"
 feature "admin can change order status" do
   scenario "they change an order from ordered to completed" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController)
-    .to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     order = create(:order, status: "ordered")
 
     visit admin_dashboard_path
@@ -23,8 +22,7 @@ feature "admin can change order status" do
 
   scenario "they cancel an order" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController)
-    .to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     order = create(:order, status: "ordered")
 
     visit admin_dashboard_path
@@ -38,8 +36,7 @@ feature "admin can change order status" do
 
   scenario "they cancel a paid order" do
     admin = create(:user, role: 1)
-    allow_any_instance_of(ApplicationController)
-    .to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
     order = create(:order, status: "paid")
 
     visit admin_dashboard_path

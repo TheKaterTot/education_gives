@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Visitor can have limited access" do
   scenario "visitor cannot view other user's private data" do

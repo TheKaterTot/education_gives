@@ -23,3 +23,4 @@ class ApplicationController < ActionController::Base
     @categories ||= Category.order(:name)
   end
 end
+#hound

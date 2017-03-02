@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "User can view one past order" do
   scenario "User sees all donations in an order" do
@@ -7,8 +7,7 @@ RSpec.describe "User can view one past order" do
     order_completed = create(:order_with_donations, user: user, status: "completed")
     donations = order_paid.donations
     order_details = order_paid.details
-    allow_any_instance_of(ApplicationController)
-    .to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit orders_path
 

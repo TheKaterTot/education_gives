@@ -51,12 +51,13 @@ class Cart
   def purchase(user)
     Order.transaction do
       order = Order.create!(user: user)
-      cart_items.each do |cart_item|
-        OrderDonation.create!(cart_item.data(order.id))
+        cart_items.each do |cart_item|
+          OrderDonation.create!(cart_item.data(order.id))
+        end
       end
-    end
     true
   rescue
     false
   end
 end
+#hound

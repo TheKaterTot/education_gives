@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "When a user adds donations to their cart", type: :feature do
   before(:each) do

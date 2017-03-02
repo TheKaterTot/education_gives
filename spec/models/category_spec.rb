@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Category, type: :model do
   it { should have_many(:donations) }
@@ -10,3 +10,4 @@ RSpec.describe Category, type: :model do
     expect(category).to_not be_valid
   end
 end
+#hound

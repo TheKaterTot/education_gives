@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe OrderDonation, type: :model do
   it {should belong_to(:order)}
@@ -10,3 +10,4 @@ RSpec.describe OrderDonation, type: :model do
     expect(order_donation.subtotal).to eq(order_donation.quantity * order_donation.donation.price)
   end
 end
+#hound

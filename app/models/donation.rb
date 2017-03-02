@@ -5,9 +5,9 @@ class Donation < ApplicationRecord
   validates :title, :description, :price, presence: true
   validates :title, uniqueness: true
   has_attached_file :image, styles: { medium: "300x300>", thumb: "50x50>" },
-    default_url: "/assets/:style/classroom.jpg"
+                                      default_url: "/assets/:style/classroom.jpg"
   validates_attachment_content_type :image,
-    :content_type => ["image/jpg", "image/jpeg", "image/png"]
+                                    :content_type => ["image/jpg", "image/jpeg", "image/png"]
 
   include ActionView::Helpers::NumberHelper
 
@@ -31,3 +31,4 @@ class Donation < ApplicationRecord
     number_to_currency(price)
   end
 end
+#hound

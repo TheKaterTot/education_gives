@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Admin cannot modify users" do
   scenario "admin cannot modify users" do

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "Visitor can create an account" do
   scenario "as a visitor I can visit the create an account page" do
@@ -29,7 +29,6 @@ RSpec.feature "Visitor can create an account" do
     expect(page).to have_content("Logout")
 
     click_on "Logout"
-    
     expect(page).to have_content("Login")
   end
 end

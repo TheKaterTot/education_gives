@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "User can update their information" do
   scenario "User change their information" do
-    create(:user, first_name:"Jane", username: "jane", password: "password")
+    create(:user, first_name: "Jane", username: "jane", password: "password")
 
     visit login_path
 

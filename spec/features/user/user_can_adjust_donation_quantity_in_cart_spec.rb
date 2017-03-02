@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "User can adjust donation quantity in cart" do
   scenario "user can adjust quantity of donation in cart" do
@@ -16,7 +16,5 @@ RSpec.describe "User can adjust donation quantity in cart" do
     within("#donation-#{donation.id}") do
       expect(page).to have_content("500")
     end
-
   end
-
 end

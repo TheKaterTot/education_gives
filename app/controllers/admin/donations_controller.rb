@@ -43,5 +43,4 @@ class Admin::DonationsController < Admin::BaseController
     params.require(:donation).permit(:title, :description, :price, :image, :category_id)
   end
 end
-
-#to trigger hound
+#hound

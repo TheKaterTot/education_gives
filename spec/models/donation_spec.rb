@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Donation, type: :model do
   it { should belong_to(:category) }
@@ -42,3 +42,4 @@ RSpec.describe Donation, type: :model do
     expect(donation.active).to eq(true)
   end
 end
+#hound

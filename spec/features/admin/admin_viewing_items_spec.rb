@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe "Admin views links for all items" do
   scenario "Admin sees links to Donations at Admin Dashboard" do
@@ -21,9 +21,7 @@ describe "Admin views links for all items" do
   scenario "Admin can see a table with all donations" do
     admin = create(:user, username: "admin", password: "password", role: 1)
     donations = create_list(:donation, 5)
-
-    allow_any_instance_of(ApplicationController)
-    .to receive(:current_user).and_return(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     visit admin_donations_path
 

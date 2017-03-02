@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "User sees all content of cart" do
   scenario "user can see all content of cart" do
@@ -23,6 +23,5 @@ RSpec.describe "User sees all content of cart" do
     within("#total") do
       expect(page).to have_content("50")
     end
-
   end
 end

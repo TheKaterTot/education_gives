@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Cart, type: :model do
   it "can calculate the total number of items it holds" do
@@ -42,10 +42,10 @@ RSpec.describe Cart, type: :model do
 
   describe "#total" do
     it "returns the total of the item prices" do
-      donation_1 = create(:donation, price: 5)
-      donation_2 = create(:donation, price: 3)
+      donation1 = create(:donation, price: 5)
+      donation2 = create(:donation, price: 3)
 
-      cart = Cart.new(donation_1.id.to_s => 1, donation_2.id.to_s => 1)
+      cart = Cart.new(donation1.id.to_s => 1, donation2.id.to_s => 1)
 
       expect(cart.total).to eq(8)
     end
@@ -71,3 +71,4 @@ RSpec.describe Cart, type: :model do
     end
   end
 end
+#hound

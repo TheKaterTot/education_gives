@@ -11,7 +11,8 @@ daily.donations.create(
 
 daily.donations.create(
   title: "Notebooks & Pencils",
-  description: "We need notebooks and pencils for our students who are unable to afford them.",
+  description: "We need notebooks and pencils for our students who are unable to
+   afford them.",
   price: 50,
   active: false
 )
@@ -25,19 +26,21 @@ daily.donations.create(
 music.donations.create(
   title: "Violin",
   description: "Our music club needs new violins for the regional competition.",
-  price: 100.0,
+  price: 100.0
 )
 
 science.donations.create(
   title: "Microsope",
-  description: "We are expanding our science department to include a unit on microbiology.",
-  price: 200.0,
+  description: "We are expanding our science department to include a unit on
+  microbiology.",
+  price: 200.0
 )
 
 library.donations.create(
   title: "Library Books",
   description: "We need to replace old, worn-out books for student free time.",
-  price: 50.0,
+  price: 50.0
+
 )
 
 User.create(

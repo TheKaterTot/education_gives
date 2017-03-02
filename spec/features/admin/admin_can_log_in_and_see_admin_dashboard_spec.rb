@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "Admin can log in and see admin dashboard" do
   scenario "Admin gets redirected to dashboard" do
